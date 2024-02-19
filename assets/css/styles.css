@@ -1,0 +1,1630 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+    --header-height: 3rem;
+
+    /*========== Colors ==========*/
+    /* Change favorite color */
+    --hue-color: 23; /*250; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+
+    /* HSL color mode first color --> Hex	#f9660b*/
+    --first-color: hsl(var(--hue-color), 95%, 51%);   
+    --first-color-second: hsl(var(--hue-color), 95%, 51%);
+    --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --text-color: hsl(var(--hue-color), 8%, 45%);
+    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --input-color: hsl(var(--hue-color), 70%, 96%);
+    --body-color: hsl(var(--hue-color), 60%, 99%);
+    --container-color: #fff;
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+    /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
+
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== Margenes Bottom ==========*/
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme{
+  --first-color-second: hsl(var(--hue-color), 29%, 16%);
+  --title-color: hsl(var(--hue-color), 8%, 95%);
+  --text-color: hsl(var(--hue-color), 8%, 75%);
+  --input-color: hsl(var(--hue-color), 29%, 16%);
+  --body-color: hsl(var(--hue-color), 28%, 12%);
+  --container-color: hsl(var(--hue-color), 29%, 16%);
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+}
+
+/*========== Button Dark/Light ==========*/
+.nav__btns{
+  display: flex;
+  align-items: center;
+}
+
+.change-theme{
+  font-size: 1.25rem;
+  color: var(--title-color);
+  margin-right: var(--mb-1);
+  cursor: pointer;
+}
+
+.change-theme:hover{
+  color: var(--first-color);
+}
+
+/*==================== BASE ====================*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 0 var(--header-height) 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+.section {
+  padding: 2rem 0 4rem;
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+}
+
+.section__subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: var(--mb-3);
+}
+
+.section__title, 
+.section__subtitle {
+  text-align: center;
+}
+
+/*==================== LAYOUT ====================*/
+.container {
+  max-width: 768px;
+  margin-left: var(--mb-1-5);
+  margin-right: var(--mb-1-5);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--body-color);
+}
+
+/*==================== NAV ====================*/
+.nav{
+  max-width: 968px;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo,
+.nav__toggle{
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+.nav__logo:hover{
+  color: var(--first-color);
+}
+
+.nav__toggle{
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.nav__toggle:hover{
+  color: var(--first-color);
+}
+
+@media screen and (max-width: 767px) {
+  .nav__menu{
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--body-color);
+    padding: 2rem 1.5rem 4rem;
+    box-shadow: 0 -1px 4px rgba(0,0,0,.15);
+    border-radius: 1.5rem 1.5rem 0 0;
+    transition: .3s;
+  }
+}
+
+.nav__list{
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.nav__link{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+.nav__link:hover{
+  color: var(--first-color);
+}
+
+.nav__icon{
+  font-size: 1.2rem;
+
+}
+
+.nav__close{
+  position: absolute;
+  right: 1.3em;
+  bottom: .5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--first-color);
+}
+
+.nav__close:hover{
+  color: var(--first-color-alt);
+}
+
+
+/* show menu */
+.show-menu{
+  bottom: 0;
+}
+
+/* Active link */
+.active-link{
+  color: var(--first-color);
+}
+
+/* Change background header */
+.scroll-header{
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+}
+
+/*==================== HOME ====================*/
+.home__container{
+  gap: 1rem;
+}
+
+.home__content{
+  grid-template-columns: .5fr 3fr;
+  padding-top: 3.5rem;
+  align-items: center;
+}
+
+.home__social{
+  display: grid;
+  grid-template-columns: max-content;
+  row-gap: 1rem;
+}
+
+.home__social-icon{
+  font-size: 1.25rem;
+  color: var(--first-color);
+}
+
+.home__social-icon:hover{
+  color: var(--first-color-alt);
+}
+
+.home__blob{
+  width: 200px;
+  fill: var(--first-color);
+}
+
+.home__blob-img{
+  width: 170px;
+}
+
+.home__data{
+  grid-column: 1/3;
+}
+
+.home__titke{
+  font-size: var(--big-font-size);
+}
+
+.home__subtitle{
+  font-size: var(--h3-font-size);
+  color: var(--text-color);
+  font-weight: var(--font-medium);
+  margin-bottom: var(--mb-0-75);
+}
+
+.home__description{
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: var(--mb-2);
+}
+
+.home__scroll{
+   display: none;
+}
+
+.home__scroll-button{
+  color: var(--first-color);
+  transition: .3s;
+}
+
+.home__scroll-button:hover{
+  transform: translateY(.25rem);
+}
+
+.home__scroll-mouse{
+  font-size: 2rem;
+}
+
+.home__scroll-name{
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  margin-right: var(--mb-0-25);
+}
+
+.home__scroll-arrow{
+  font-size: 1.25rem;
+}
+
+
+/*==================== BUTTONS ====================*/
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #FFF;
+  padding: 1rem;
+  border-radius: .5rem;
+  font-weight: var(--font-medium);
+}
+
+.button:hover{
+  background-color: var(--first-color-alt);
+}
+
+.button__icon{
+  font-size: 1.25rem;
+  margin-left: var(--mb-0-5);
+  transition: .3s;
+}
+
+.button--white{
+  background-color: #FFF;
+  color: var(--first-color);
+}
+
+.button--white:hover{
+  background-color: #FFF;
+  /* color: var(--first-color); */
+}
+
+.button--flex{
+  display: inline-flex;
+  align-items: center;
+}
+
+.button--small{
+  padding: .75rem 1rem;
+}
+
+.button--link{
+  padding: 0;
+  background-color: transparent;
+  color: var(--first-color);
+}
+
+.button--link:hover{
+  background-color: transparent;
+  color: var(--first-color-alt);
+}
+
+
+/*==================== ABOUT ====================*/
+.about__img{
+  width: 350px;
+  border-radius: .5rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.about__description{
+  text-align: justify;
+  margin-bottom: var(--mb-2-5);
+}
+
+
+.about__info{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: var(--mb-2-5);
+}
+
+.about__info-name{
+  font-size: var(--smaller-font-size);
+}
+
+.about__info-title{
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.about__info-title,
+.about__info-name{
+  display: block;
+  text-align: center;
+}
+
+
+.about__buttons{
+  display: flex;
+  justify-content: center;
+}
+/*==================== SKILLS ====================*/
+.skills__container{
+  row-gap: 0;
+}
+
+.skills__header{
+  display: flex;
+  align-items: center;
+  /* margin-bottom: var(--mb-2-5); */
+  cursor: pointer;
+}
+
+.skills__icon,
+.skills__arrow{
+  font-size: 2rem;
+  color: var(--first-color);
+}
+
+
+.skills__icon{
+  margin-right: var(--mb-0-75);
+}
+
+.skills__title{
+  font-size: var(--h3-font-size);
+}
+
+.skills__subtitle{
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.skills__arrow{
+  margin-left: auto;
+  transition: .4s;
+}
+
+
+.skills__titles{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--mb-0-0);
+}
+
+.skills__name{
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+}
+
+
+.skills__bar,
+.skills__percantage{
+  height: 5px;
+  border-radius: .25rem;
+}
+
+
+.skills__bar{
+  background-color: var(--first-color-lighter);
+}
+
+
+.skills__percantage{
+  display: block;
+  background-color: var(--first-color);
+}
+
+.skills__sys-code{
+  width: 100%;
+}
+
+.skills__80{
+  width: 80%;
+}
+
+.skills__60{
+  width: 60%;
+}
+
+.skills__40{
+  width: 40%;
+}
+
+.skills__20{
+  width: 20%;
+}
+
+.skills__close .skills__list{
+  height: 0;
+  overflow: hidden;
+}
+
+.skills__open .skills__list{
+  height: max-content;
+  margin-bottom: var(--mb-2-5);
+}
+
+.skills__open .skills__arrow{
+  transform: rotate(-180deg);
+}
+
+
+/*==================== QUALIFICATION ====================*/
+.qualification__tabs{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: var(--mb-2);
+}
+
+.qualification__button{
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+}
+
+.qualification__button:hover{
+  color: var(--first-color);
+}
+
+.qualification__icon{
+  font-size: 1.8rem;
+  margin-right: var(--mb-0-25);
+}
+
+
+.qualification__data{
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  column-gap: 1.5rem;
+}
+
+.qualification__title{
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+}
+
+.qualification__subtitle{
+  display: inline-block;
+  font-size: var(--small-font-size);
+  margin-bottom: var(--mb-1);
+}
+.qualification__degree{
+  display: inline-block;
+  font-size: var(--smaller-font-size);
+  margin-bottom: var(--mb-0);
+}
+
+.qualification__calendar{
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}
+
+
+.qualification__rounder{
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background-color: var(--first-color);
+  border-radius: 50%;
+}
+
+
+.qualification__line{
+  display: block;
+  width: 1px;
+  height: 100%;
+  background-color: var(--first-color);
+  transform: translate(6px, -7px);
+
+}
+
+.qualification [data-content]{
+  display: none;
+}
+
+.qualification__active[data-content]{
+  display: block;
+}
+
+.qualification__button.qualification__active{
+  color: var(--first-color);
+}
+
+/*==================== PROJECTS ====================*/
+.projects__container{
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.projects__content{
+  position: relative;
+  background-color: var(--container-color);
+  padding: 3.5rem .5rem 1.25rem 1.5rem;
+  border-radius: .25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
+  transition: .3s;
+}
+
+.projects__content:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .15);
+}
+
+.projects__icon{
+  display: block;
+  font-size: 1.5rem;
+  color: var(--first-color);
+  margin-bottom: var(--mb-1);
+}
+
+.projects__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-1);
+  font-weight: var(--font-medium);
+}
+
+/*
+.projects__modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.projects__modal-content{
+  position: relative;
+  background-color: var(--container-color);
+  padding: 1.5rem;
+  border-radius: .5rem;
+
+}
+
+.projects__modal-projects{
+  row-gap: 1rem;
+}
+
+.projects__modal-project{
+  display: flex;
+}
+
+.projects__modal-project-ind{
+  display: flex;
+  padding-left: 5%;
+}
+
+.projects__modal-title{
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: var(--mb-1-5);
+}
+
+.projects__modal-close{
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--first-color);
+  cursor: pointer;
+}
+
+.projects__modal-icon{
+  color: var(--first-color);
+  margin-right: var(--mb-0-25);
+}
+
+Active Modal 
+.active-modal{
+  opacity: 1;
+  visibility: visible;
+}
+*/
+/*==================== PAPER ====================*/
+/*
+.paper__container{
+  overflow: initial;
+}
+
+.paper__content{
+  padding: 0 1.5rem;
+}
+
+.paper__img{
+  width: 265px;
+  border-radius: .5rem;
+  justify-self: center;
+}
+
+.paper__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-0-5);
+}
+
+.paper__description{
+  text-align: justify;
+  margin-bottom: var(--mb-0-75);
+}
+
+.paper__button:hover .button__icon{
+  transform: translateX(.25rem);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after{
+  content: '';
+}
+
+.swiper-paper-icon{
+  font-size: 2rem;
+  color: var(--first-color);
+}
+
+.swiper-button-prev{
+  left: -.5rem;
+}
+
+.swiper-button-next{
+  right: -.5rem;
+}
+
+
+.swiper-horizontal > .swiper-pagination-bullets{
+  bottom: -2.5rem;
+}
+
+.swiper-pagination-bullet-active{
+  background-color: var(--first-color);
+}
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullet{
+  outline: none;
+}
+*/
+
+/*==================== PROJECT  ====================*/
+.project{
+  text-align: center;
+}
+
+.project__bg{
+  background-color: var(--first-color-second);
+  padding-top: 3rem;
+}
+
+.project__title{
+  font-size: var(--h2-font-size);
+  margin-bottom: var(--mb-0-75);
+}
+
+.project__description{
+  margin-bottom: var(--mb-1-5);
+}
+
+.project__title,
+.project__description{
+  color: #FFF;
+}
+
+.project__img{
+  width: 232px;
+  justify-self: center;
+}
+
+
+/*==================== iFRAME ====================*/
+
+.iframe__container {
+  max-width: 100%;
+  aspect-ratio: auto 16 / 9; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+.iframe{
+  border-radius: 1rem;
+  border: none;
+}
+
+/*==================== CONTACT ME ====================*/
+.contact__container{
+  row-gap: 3rem;
+}
+
+.contact__information{
+  display: flex;
+  margin-bottom: var(--mb-2);
+}
+
+.contact__icon{
+  font-size: 2rem;
+  color: var(--first-color);
+  margin-right: var(--mb-0-75);
+}
+
+.contact__title{
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+}
+
+.contact__subtitle{
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+}
+
+.contact__content{
+  background-color: var(--input-color);
+  border-radius: .5rem;
+  padding: .75rem 1rem .25rem;
+}
+
+.contact__content span{
+  /* position: relative; */
+  color: var(--first-color)
+}
+
+.contact__label{
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+}
+
+
+
+/*==================== FOOTER ====================*/
+.footer{
+  padding-top: 1rem;
+}
+
+.footer__container{
+  row-gap: 1rem;
+}
+
+.footer__bg{
+  background-color: var(--first-color-second);
+  padding: 2rem 0 3rem;
+}
+
+.footer__copy{
+  font-size: var(--smaller-font-size);
+  text-align: center;
+  color: var(--text-color-light);
+  color: #FFF;
+  margin-top: 1rem;
+}
+
+
+.footer__title,
+.footer__subtitle,
+.footer__link,
+.footer__social{
+  color: #FFF;
+}
+
+
+/*========== SCROLL UP ==========*/
+.scrollup{
+  position:fixed;
+  right: 1rem;
+  bottom: -20%;
+  background-color: var(--first-color);
+  opacity: .8;
+  padding: 0 .3rem;
+  border-radius: .4rem;
+  z-index: var(--z-tooltip);
+  transition: .4s;
+}
+
+.scrollup:hover{
+  background-color: var(--first-color-alt);
+}
+/* Show scroll */
+
+.scrollup__icon{
+  font-size: 1.5rem;
+  color: #FFF;
+}
+
+.show-scroll{
+  bottom: 5rem;
+}
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar{
+  width: .60rem;
+  background-color: var(--scroll-bar-color);
+  border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: var(--scroll-thumb-color);
+  border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: var(--text-color-light);
+}
+
+/*==================== MEDIA QUERIES ====================*/
+/* For small devices */
+@media screen and (max-width: 350px){
+  .container{
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
+
+  .nav__menu{
+    padding: 2rem .25rem 4rem;
+  }
+  .nav__list{
+    column-gap: 0;
+  }
+
+  .home__content{
+    grid-template-columns: .25fr 3fr;
+  }
+
+  .home__blob{
+    width: 180px;
+  }
+
+  .skills__titles{
+    font-size: var(--normal-font-size)
+  }
+
+  .qualification__data{
+    gap: .5rem;
+  }
+
+  .projects__container{
+    grid-template-columns: max-content;
+    justify-content: center;
+  }
+
+  .projects__content{
+    padding-right: 3.5rem;
+  }
+
+ 
+
+  .footer__links{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    gap: .5rem;
+  }
+
+}
+
+@media screen and (max-width: 450px){
+
+  .videos__content{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+}
+
+/* For medium devices */
+
+@media screen and (min-width: 568px){
+  .home__content{
+    grid-template-columns: max-content 1fr 1fr;
+  }
+  .home__data{
+    grid-column: initial;
+  }
+  .home__img{
+    order: 1;
+    justify-self: center;
+  }
+  
+  .about__container,
+  .skills__container,
+  .paper__content,
+  .project__container,
+  .contact__container,
+  .footer__container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .qualification__sections{
+    display: grid;
+    grid-template-columns: .6fr;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .container{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body{
+    margin: 0;
+  }
+
+  .section{
+    padding: 6rem 0 2rem;
+  }
+
+  .section__subtitle{
+    margin-bottom: 4rem;
+  }
+
+  .header{
+    top: 0;
+    bottom: initial;
+  }
+
+  .header,
+  .main,
+  .footer__container{
+    padding: 0 1rem;
+  }
+
+  .nav{
+    height: calc(var(--header-height) + 1.5rem);
+    column-gap: 1rem;
+  }
+
+  .nav__icon,
+  .nav__close,
+  .nav__toggle{
+    display: none;
+  }
+
+
+  .nav__list{
+    display: flex;
+    column-gap: 2rem;
+  }
+
+  .nav__menu{
+    margin-left: auto;
+  }
+
+  .change-theme{
+    margin: 0;
+  }
+
+  .home__container{
+    row-gap: 5rem;
+  }
+
+  .home__content{
+    padding-top: 5.5rem;
+    column-gap: 2rem;
+  }
+
+  .home__blob{
+    width: 270px;
+  }
+
+  .home__scroll{
+    display: block;
+  }
+
+  .home__scroll-button{
+    margin-left: 3rem;
+  }
+
+  .about__container{
+    column-gap: 5rem;
+  }
+
+  .about__img{
+    width: 350px;
+  }
+
+  .about__description{
+    text-align: justify;
+  }
+
+  .about__info{
+    justify-content: space-between;
+  }
+
+  .about__buttons{
+    justify-content: initial;
+  }
+
+  .qualification__tabs{
+    justify-content: center;
+  }
+
+  .qualification__button{
+    margin: 0 var(--mb-1);
+  }
+
+  .qualification__sections{
+    grid-template-columns: .5fr;
+  }
+
+  .projects__container{
+    grid-template-columns: repeat(3, 218px);
+    justify-content: center;
+  }
+
+  .projects__icon{
+    font-size: 2rem;
+  }
+
+  .projects__content{
+    padding: 6rem 0 2rem 2.5rem;
+  }
+
+  .projects__modal-content{
+    width: 450px;
+  }
+
+  .paper__img{
+    width: 320px;
+  }
+
+  .paper__content{
+    align-items: center;
+  }
+
+  .project{
+    text-align: initial;
+  }
+
+  .project__bg{
+    background: none;
+  }
+
+  .project__container{
+    background-color: var(--first-color-second);
+    border-radius: 1rem;
+    padding: 3rem 2.5rem 0;
+    grid-template-columns: 1fr max-content;
+    column-gap: 3rem;
+  }
+
+  .project__data{
+    padding-top: .8rem;
+  }
+
+  .footer__container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer__bg{
+    padding: 1rem 0 1rem;
+  }
+
+
+  .footer__copy{
+    margin-top: 1rem;
+  }
+}
+
+/* For large devices */
+
+@media screen and (min-width: 1024px){
+  .heder,
+  .main,
+  .footer__container{
+    padding: 0;
+  }
+
+  .home__blob{
+    width: 320px;
+  }
+
+  .home__social{
+    transform: translateX(-6rem);
+  }
+
+  .projects__container{
+    grid-template-columns: repeat(3, 238px);
+  }
+  
+  .paper__content{
+    column-gap: 5rem;
+  }
+
+  .swiper-paper-icon{
+    font-size: 3.5rem;
+  }
+
+  .swiper-button-prev{
+    left: -3.5rem;
+  }
+
+  .swiper-button-next{
+    right: -3.5rem;
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets{
+    bottom: -4.5rem;
+  }
+
+  .swiper .swiper-pagination-testimonial{
+    bottom: 0;
+  }
+
+  .contact__form{
+    width: 460px;
+  }
+
+  .contact__inputs{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* dev to icon*/
+.mdi--dev-to {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23dd6f30' d='M7.73 11.93c0 1.72-.02 1.83-.23 2.07c-.19.17-.38.23-.76.23l-.51.01l-.03-2.27l-.02-2.27h.52c.35 0 .6.07.77.21c.24.21.26.25.26 2.02M22 7.5v9c0 1.11-.89 2-2 2H4c-1.11 0-2-.89-2-2v-9c0-1.11.89-2 2-2h16c1.11 0 2 .89 2 2M8.93 11.73c-.03-1.84-.05-1.99-.29-2.39c-.4-.68-.85-.84-2.36-.84H5v7h1.21c1.33 0 1.89-.17 2.29-.71c.41-.53.5-.98.43-3.06m4.19-3.23h-1.48c-1.49 0-1.5 0-1.71.28S9.7 9.21 9.7 12v2.96l.27.27c.25.27.31.27 1.71.27h1.44v-1.19l-1.09-.04l-1.1-.03V12.6l.68-.03l.66-.04v-1.19h-1.39V9.7h2.24zm5.88.06c0-.06-.3-.06-.66-.06l-.68.06l-.59 2.35c-.38 1.48-.62 2.27-.67 2.13c-.08-.27-1.14-4.44-1.14-4.49c0-.05-.31-.05-.68-.05h-.69l.41 1.55c.2.87.59 2.28.81 3.15c.34 1.35.46 1.65.75 1.94c.2.22.45.36.61.36c.33 0 .76-.34.9-.73C17.5 14.5 19 8.69 19 8.56'/%3E%3C/svg%3E");
+  }
+
+
+
+
+/* GITHUB          */
+  section.github-repo-cards, section.github-repo-cards * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #fff;
+}
+
+section.github-repo-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+    
+    padding: 0rem 3rem 2rem 3rem ;
+    position: relative;
+}
+
+section.github-repo-cards div.github-repo-card {
+    width: 100%;
+    height: 100%;
+    padding: 3.5rem 2rem 1.25rem 1.5rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section.github-repo-cards div.github-repo-card a {
+  color: var(--first-color)
+  font-size: var(--big-font-size);
+  margin-bottom: var(--mb-1);
+  font-weight: var(--font-medium);
+}
+
+section.github-repo-cards div.github-repo-card a:hover {
+    text-decoration: underline;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .15);
+}
+
+section.github-repo-cards div.github-repo-card p.desc {
+    font-size: var(--small-font-size);
+  color: var(--text-color);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+section.github-repo-cards div.github-repo-card svg {
+    cursor: pointer;
+    fill: var(--first-color);
+    width: 1.5rem;
+}
+
+section.github-repo-cards div.github-repo-card div.footer-info {
+    display: flex;
+    align-items: center;
+}
+
+section.github-repo-cards div.github-repo-card p.lang.align-center {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+section.github-repo-cards div.github-repo-card p.lang.align-center a {
+  margin-left: 0.5rem;
+    color: var(--title-color) ;
+    font-size: 1rem;
+}
+section.github-repo-cards div.github-repo-card p.lang-sub.align-center {
+  color: var(--text-color) ;
+  font-size: var(--small-font-size);
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 0.5rem;
+  
+}
+
+section.github-repo-cards div.github-repo-card span.lang-color {
+    color: #A03232 ;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 6px;
+    left: 0;
+}
+
+
+
+
+section.github-repo-cards div.github-repo-card div.footer-info a.stars-forks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+section.github-repo-cards div.github-repo-card div.footer-info a.stars-forks span {
+    font-size: 13px;
+    margin-left: 2px;
+    color: var(--text-color);
+    pointer-events: none;
+}
+
+section.github-repo-cards div.github-repo-card div.footer-info a.stars-forks:hover span {
+    color: #4e9fff;
+}
+
+section.github-repo-cards div.github-repo-card div.footer-info a.stars-forks:hover svg {
+    fill: #4e9fff;
+}
+
+@media (max-width: 1850px) {
+    section.github-repo-cards {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0rem 3rem 2rem 3rem ;
+    }
+}
+
+@media (max-width: 1240px) {
+    section.github-repo-cards {
+      padding: 0rem 3rem 2rem 3rem ;
+    }
+}
+
+@media (max-width: 950px) {
+    section.github-repo-cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0rem 1rem 1rem 1.5rem ;
+    }
+}
+
+@media (max-width: 600px) {
+    section.github-repo-cards {
+      padding: 0rem .5rem 1.25rem 1.5rem;
+    }
+}
+
+@media (max-width: 540px) {
+    section.github-repo-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Colors */
+
+section.github-repo-cards .ABAP { background: #E8274B; }
+section.github-repo-cards .ActionScript { background: #882B0F; }
+section.github-repo-cards .Ada { background: #02f88c; }
+section.github-repo-cards .Agda { background: #315665; }
+section.github-repo-cards .AGS-Script { background: #B9D9FF; }
+section.github-repo-cards .Alloy { background: #64C800; }
+section.github-repo-cards .AMPL { background: #E6EFBB; }
+section.github-repo-cards .ANTLR { background: #9DC3FF; }
+section.github-repo-cards .API-Blueprint { background: #2ACCA8; }
+section.github-repo-cards .APL { background: #5A8164; }
+section.github-repo-cards .Arc { background: #aa2afe; }
+section.github-repo-cards .Arduino { background: #bd79d1; }
+section.github-repo-cards .ASP { background: #6a40fd; }
+section.github-repo-cards .AspectJ { background: #a957b0; }
+section.github-repo-cards .Assembly { background: #6E4C13; }
+section.github-repo-cards .ATS { background: #1ac620; }
+section.github-repo-cards .AutoHotkey { background: #6594b9; }
+section.github-repo-cards .AutoIt { background: #1C3552; }
+section.github-repo-cards .BlitzMax { background: #cd6400; }
+section.github-repo-cards .Boo { background: #d4bec1; }
+section.github-repo-cards .Brainfuck { background: #2F2530; }
+section.github-repo-cards .C-Sharp { background: #178600; }
+section.github-repo-cards .C { background: #555555; }
+section.github-repo-cards .Chapel { background: #8dc63f; }
+section.github-repo-cards .Cirru { background: #ccccff; }
+section.github-repo-cards .Clarion { background: #db901e; }
+section.github-repo-cards .Clean { background: #3F85AF; }
+section.github-repo-cards .Click { background: #E4E6F3; }
+section.github-repo-cards .Clojure { background: #db5855; }
+section.github-repo-cards .CoffeeScript { background: #244776; }
+section.github-repo-cards .ColdFusion-CFC { background: #ed2cd6; }
+section.github-repo-cards .ColdFusion { background: #ed2cd6; }
+section.github-repo-cards .Common-Lisp { background: #3fb68b; }
+section.github-repo-cards .Component-Pascal { background: #b0ce4e; }
+section.github-repo-cards .C\+\+ { background: #f34b7d; }
+section.github-repo-cards .Crystal { background: #776791; }
+section.github-repo-cards .CSS { background: #563d7c; }
+section.github-repo-cards .C { background: #563d7c; }
+section.github-repo-cards .SCSS { background: #563d7c; }
+section.github-repo-cards .SASS { background: #563d7c; }
+section.github-repo-cards .D { background: #ba595e; }
+section.github-repo-cards .Dart { background: #00B4AB; }
+section.github-repo-cards .Diff { background: #88dddd; }
+section.github-repo-cards .DM { background: #447265; }
+section.github-repo-cards .Dogescript { background: #cca760; }
+section.github-repo-cards .Dylan { background: #6c616e; }
+section.github-repo-cards .E { background: #ccce35; }
+section.github-repo-cards .Eagle { background: #814C05; }
+section.github-repo-cards .eC { background: #913960; }
+section.github-repo-cards .ECL { background: #8a1267; }
+section.github-repo-cards .edn { background: #db5855; }
+section.github-repo-cards .Eiffel { background: #946d57; }
+section.github-repo-cards .Elixir { background: #6e4a7e; }
+section.github-repo-cards .Elm { background: #60B5CC; }
+section.github-repo-cards .Emacs-Lisp { background: #c065db; }
+section.github-repo-cards .EmberScript { background: #FFF4F3; }
+section.github-repo-cards .Erlang { background: #B83998; }
+section.github-repo-cards .F-Sharp { background: #b845fc; }
+section.github-repo-cards .Factor { background: #636746; }
+section.github-repo-cards .Fancy { background: #7b9db4; }
+section.github-repo-cards .Fantom { background: #dbded5; }
+section.github-repo-cards .FLUX { background: #88ccff; }
+section.github-repo-cards .Forth { background: #341708; }
+section.github-repo-cards .FORTRAN { background: #4d41b1; }
+section.github-repo-cards .FreeMarker { background: #0050b2; }
+section.github-repo-cards .Frege { background: #00cafe; }
+section.github-repo-cards .Game-Maker-Language { background: #8fb200; }
+section.github-repo-cards .Glyph { background: #e4cc98; }
+section.github-repo-cards .Gnuplot { background: #f0a9f0; }
+section.github-repo-cards .Go { background: #375eab; }
+section.github-repo-cards .Golo { background: #88562A; }
+section.github-repo-cards .Gosu { background: #82937f; }
+section.github-repo-cards .Grammatical-Framework { background: #79aa7a; }
+section.github-repo-cards .Groovy { background: #e69f56; }
+section.github-repo-cards .Handlebars { background: #01a9d6; }
+section.github-repo-cards .Harbour { background: #0e60e3; }
+section.github-repo-cards .Haskell { background: #29b544; }
+section.github-repo-cards .Haxe { background: #df7900; }
+section.github-repo-cards .HTML { background: #e44b23; }
+section.github-repo-cards .Hy { background: #7790B2; }
+section.github-repo-cards .IDL { background: #a3522f; }
+section.github-repo-cards .Io { background: #a9188d; }
+section.github-repo-cards .Ioke { background: #078193; }
+section.github-repo-cards .Isabelle { background: #FEFE00; }
+section.github-repo-cards .J { background: #9EEDFF; }
+section.github-repo-cards .Java { background: #b07219; }
+section.github-repo-cards .JavaScript { background: #f1e05a; }
+section.github-repo-cards .JFlex { background: #DBCA00; }
+section.github-repo-cards .JSONiq { background: #40d47e; }
+section.github-repo-cards .Julia { background: #a270ba; }
+section.github-repo-cards .Jupyter-Notebook { background: #DA5B0B; }
+section.github-repo-cards .Kotlin { background: #F18E33; }
+section.github-repo-cards .KRL { background: #28431f; }
+section.github-repo-cards .Lasso { background: #999999; }
+section.github-repo-cards .Latte { background: #A8FF97; }
+section.github-repo-cards .Lex { background: #DBCA00; }
+section.github-repo-cards .LFE { background: #004200; }
+section.github-repo-cards .LiveScript { background: #499886; }
+section.github-repo-cards .LOLCODE { background: #cc9900; }
+section.github-repo-cards .LookML { background: #652B81; }
+section.github-repo-cards .LSL { background: #3d9970; }
+section.github-repo-cards .Lua { background: #000080; }
+section.github-repo-cards .Makefile { background: #427819; }
+section.github-repo-cards .Mask { background: #f97732; }
+section.github-repo-cards .Matlab { background: #bb92ac; }
+section.github-repo-cards .Max { background: #c4a79c; }
+section.github-repo-cards .MAXScript { background: #00a6a6; }
+section.github-repo-cards .Mercury { background: #ff2b2b; }
+section.github-repo-cards .Metal { background: #8f14e9; }
+section.github-repo-cards .Mirah { background: #c7a938; }
+section.github-repo-cards .MTML { background: #b7e1f4; }
+section.github-repo-cards .NCL { background: #28431f; }
+section.github-repo-cards .Nemerle { background: #3d3c6e; }
+section.github-repo-cards .nesC { background: #94B0C7; }
+section.github-repo-cards .NetLinx { background: #0aa0ff; }
+section.github-repo-cards .NetLinx-ERB { background: #747faa; }
+section.github-repo-cards .NetLogo { background: #ff6375; }
+section.github-repo-cards .NewLisp { background: #87AED7; }
+section.github-repo-cards .Nimrod { background: #37775b; }
+section.github-repo-cards .Nit { background: #009917; }
+section.github-repo-cards .Nix { background: #7e7eff; }
+section.github-repo-cards .Nu { background: #c9df40; }
+section.github-repo-cards .Objective-C { background: #438eff; }
+section.github-repo-cards .Objective-Cpp { background: #6866fb; }
+section.github-repo-cards .Objective-J { background: #ff0c5a; }
+section.github-repo-cards .OCaml { background: #3be133; }
+section.github-repo-cards .Omgrofl { background: #cabbff; }
+section.github-repo-cards .ooc { background: #b0b77e; }
+section.github-repo-cards .Opal { background: #f7ede0; }
+section.github-repo-cards .Oxygene { background: #cdd0e3; }
+section.github-repo-cards .Oz { background: #fab738; }
+section.github-repo-cards .Pan { background: #cc0000; }
+section.github-repo-cards .Papyrus { background: #6600cc; }
+section.github-repo-cards .Parrot { background: #f3ca0a; }
+section.github-repo-cards .Pascal { background: #b0ce4e; }
+section.github-repo-cards .PAWN { background: #dbb284; }
+section.github-repo-cards .Perl { background: #0298c3; }
+section.github-repo-cards .Perl6 { background: #0000fb; }
+section.github-repo-cards .PHP { background: #4F5D95; }
+section.github-repo-cards .PigLatin { background: #fcd7de; }
+section.github-repo-cards .Pike { background: #005390; }
+section.github-repo-cards .PLSQL { background: #dad8d8; }
+section.github-repo-cards .PogoScript { background: #d80074; }
+section.github-repo-cards .Processing { background: #0096D8; }
+section.github-repo-cards .Prolog { background: #74283c; }
+section.github-repo-cards .Propeller-Spin { background: #7fa2a7; }
+section.github-repo-cards .Puppet { background: #302B6D; }
+section.github-repo-cards .Pure-Data { background: #91de79; }
+section.github-repo-cards .PureBasic { background: #5a6986; }
+section.github-repo-cards .PureScript { background: #1D222D; }
+section.github-repo-cards .Python { background: #3572A5; }
+section.github-repo-cards .QML { background: #44a51c; }
+section.github-repo-cards .R { background: #198ce7; }
+section.github-repo-cards .Racket { background: #22228f; }
+section.github-repo-cards .Ragel-in-Ruby-Host { background: #9d5200; }
+section.github-repo-cards .RAML { background: #77d9fb; }
+section.github-repo-cards .Rebol { background: #358a5b; }
+section.github-repo-cards .Red { background: #ee0000; }
+section.github-repo-cards .Ren-Py { background: #ff7f7f; }
+section.github-repo-cards .Rouge { background: #cc0088; }
+section.github-repo-cards .Ruby { background: #701516; }
+section.github-repo-cards .Rust { background: #dea584; }
+section.github-repo-cards .SaltStack { background: #646464; }
+section.github-repo-cards .SAS { background: #B34936; }
+section.github-repo-cards .Scala { background: #DC322F; }
+section.github-repo-cards .Scheme { background: #1e4aec; }
+section.github-repo-cards .Self { background: #0579aa; }
+section.github-repo-cards .Shell { background: #89e051; }
+section.github-repo-cards .Shen { background: #120F14; }
+section.github-repo-cards .Slash { background: #007eff; }
+section.github-repo-cards .Slim { background: #ff8f77; }
+section.github-repo-cards .Smalltalk { background: #596706; }
+section.github-repo-cards .SourcePawn { background: #5c7611; }
+section.github-repo-cards .SQF { background: #3F3F3F; }
+section.github-repo-cards .Squirrel { background: #800000; }
+section.github-repo-cards .Stan { background: #b2011d; }
+section.github-repo-cards .Standard-ML { background: #dc566d; }
+section.github-repo-cards .SuperCollider { background: #46390b; }
+section.github-repo-cards .Swift { background: #ffac45; }
+section.github-repo-cards .SystemVerilog { background: #DAE1C2; }
+section.github-repo-cards .Tcl { background: #e4cc98; }
+section.github-repo-cards .TeX { background: #3D6117; }
+section.github-repo-cards .Turing { background: #45f715; }
+section.github-repo-cards .TypeScript { background: #2b7489; }
+section.github-repo-cards .Unified-Parallel-C { background: #4e3617; }
+section.github-repo-cards .Unity3D-Asset { background: #ab69a1; }
+section.github-repo-cards .UnrealScript { background: #a54c4d; }
+section.github-repo-cards .Vala { background: #fbe5cd; }
+section.github-repo-cards .Verilog { background: #b2b7f8; }
+section.github-repo-cards .VHDL { background: #adb2cb; }
+section.github-repo-cards .VimL { background: #199f4b; }
+section.github-repo-cards .Visual-Basic { background: #945db7; }
+section.github-repo-cards .Volt { background: #1F1F1F; }
+section.github-repo-cards .Vue { background: #2c3e50; }
+section.github-repo-cards .Web-Ontology-Language { background: #9cc9dd; }
+section.github-repo-cards .wisp { background: #7582D1; }
+section.github-repo-cards .X10 { background: #4B6BEF; }
+section.github-repo-cards .xBase { background: #403a40; }
+section.github-repo-cards .XC { background: #99DA07; }
+section.github-repo-cards .XQuery { background: #5232e7; }
+section.github-repo-cards .Zephir { background: #118f9e; }
