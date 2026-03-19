@@ -19,7 +19,7 @@ const experienceSectionData = {
     title: 'Research Experience',
     slug: 'research',
     icon: 'fa6-solid:microscope',
-    visible: true,
+    visible: false,
   },
   jobs: [
     {
