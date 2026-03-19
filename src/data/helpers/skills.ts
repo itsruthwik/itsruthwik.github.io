@@ -164,3 +164,82 @@ export const vue = createSkillFactory({
   iconColor: '#4FC08D',
   url: 'https://vuejs.org/',
 });
+
+// FPGA & EDA Skills
+
+export const python = createSkillFactory({
+  name: 'Python',
+  icon: 'simple-icons:python',
+  iconColor: '#3776AB',
+  url: 'https://www.python.org/',
+});
+
+export const cCpp = createSkillFactory({
+  name: 'C/C++',
+  icon: 'simple-icons:c',
+  iconColor: '#A8B9CC',
+  url: 'https://isocpp.org/',
+});
+
+export const verilog = createSkillFactory({
+  name: 'Verilog',
+  icon: 'fa6-solid:microchip',
+  iconColor: '#4F4F4F',
+  url: 'https://www.ieee.org/',
+});
+
+export const systemverilog = createSkillFactory({
+  name: 'SystemVerilog',
+  icon: 'fa6-solid:microchip',
+  iconColor: '#4F4F4F',
+  url: 'https://www.ieee.org/',
+});
+
+export const quartus = createSkillFactory({
+  name: 'Intel Quartus',
+  icon: 'simple-icons:intel',
+  iconColor: '#0068B5',
+  url: 'https://www.intel.com/content/www/us/en/software-kit/756779/intel-quartus-prime-pro-edition-version-24-4-for-linux.html',
+});
+
+export const xilinx = createSkillFactory({
+  name: 'Xilinx Vivado',
+  icon: 'simple-icons:xilinx',
+  iconColor: '#ED1C24',
+  url: 'https://www.xilinx.com/',
+});
+
+export const synopsys = createSkillFactory({
+  name: 'Synopsys VCS/DC/PT',
+  icon: 'fa6-solid:building',
+  iconColor: '#4BAA35',
+  url: 'https://www.synopsys.com/',
+});
+
+export const cadence = createSkillFactory({
+  name: 'Cadence Genus/Innovus/Virtuoso',
+  icon: 'fa6-solid:building',
+  iconColor: '#FF6B00',
+  url: 'https://www.cadence.com/',
+});
+
+export const openfpga = createSkillFactory({
+  name: 'OpenFPGA',
+  icon: 'fa6-solid:microchip',
+  iconColor: '#4F4F4F',
+  url: 'https://openfpga.readthedocs.io/',
+});
+
+export const openroad = createSkillFactory({
+  name: 'OpenROAD',
+  icon: 'fa6-solid:road',
+  iconColor: '#2E7D32',
+  url: 'https://openroad.readthedocs.io/',
+});
+
+export const vtr = createSkillFactory({
+  name: 'VTR/VPR',
+  icon: 'fa6-solid:microchip',
+  iconColor: '#5C6BC0',
+  url: 'https://verilogtorouting.org/',
+});

@@ -11,3 +11,8 @@ stats.html
 # Favicon generation
 public/favicons
 *.generated.astro
+
+# Conductor
+conductor/
+
+main.tex

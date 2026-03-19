@@ -11,14 +11,13 @@ const config = {
     },
   },
   meta: {
-    title: 'Mark Freeman - Senior React Developer',
+    title: 'Ruthwik Reddy Sunketa - Computer Engineering PhD Student',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales ac dui at vestibulum. In condimentum metus id dui tincidunt, in blandit mi vehicula.',
+      'Computer Engineering PhD student at Arizona State University specializing in FPGA architecture, design, and automated EDA flows. Research focuses on next-generation FPGA architectures for AI/ML workload acceleration and hardware-software co-design.',
     faviconPath: '/src/assets/my-image.jpeg',
   },
   pdf: {
-    footer:
-      'I hereby give consent for my personal data included in my application to be processed for the purposes of the recruitment process.',
+    footer: 'Computer Engineering PhD Student at Arizona State University',
   },
 } as const satisfies ReadonlyDeep<Config>;
 

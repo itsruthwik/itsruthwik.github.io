@@ -1,82 +1,93 @@
 import type { ExperienceSection } from '@/types/sections/experience-section.types';
 import type { ReadonlyDeep } from 'type-fest';
-import { facebook, github, instagram, linkedin, twitter, website } from '../helpers/links';
+import { website } from '../helpers/links';
 import {
-  chakraUi,
-  eslint,
-  firebase,
-  nextJs,
-  nx,
-  pnpm,
-  react,
-  reactQuery,
-  tailwindCss,
-  typescript,
-  vue,
+  python,
+  cCpp,
+  verilog,
+  systemverilog,
+  xilinx,
+  synopsys,
+  cadence,
+  openfpga,
+  openroad,
+  vtr,
 } from '../helpers/skills';
 
 const experienceSectionData = {
   config: {
-    title: 'Work experience',
-    slug: 'experience',
-    icon: 'fa6-solid:suitcase',
+    title: 'Research Experience',
+    slug: 'research',
+    icon: 'fa6-solid:microscope',
     visible: true,
   },
   jobs: [
     {
-      role: 'Senior front-end developer',
-      company: 'Google',
-      image: import('@/assets/logos/google-logo.jpg'),
-      dates: [new Date('2020-02'), null],
+      role: 'Research Assistant - HLS-to-VTR: Architecture-Aware High-Level Synthesis',
+      company: 'Arizona State University',
+      image: import('@/assets/logos/asu-logo.jpg'),
+      dates: [new Date('2025-12'), null],
       description: `
-        - In tristique vulputate augue vel egestas.
-        - Quisque ac imperdiet tortor, at lacinia ex.
-        - Duis vel ex hendrerit, commodo odio sed, aliquam enim.
-        - Ut arcu nulla, tincidunt eget arcu eget, molestie vulputate nisi.
-        - Nunc malesuada leo et est iaculis facilisis.
-        - Fusce eu urna ut magna malesuada fringilla.
+Developing HLS frontend for VTR framework to enable architecture-aware RTL generation from C/C++ designs.
+
+- Implementing custom MLIR lowering passes to automate the mapping of high-level algorithmic operations to specialized hardware like tensor slices and Processing-In-Memory (PIM) blocks
       `,
       tagsList: {
         title: 'Technologies',
-        tags: [react(), nextJs(), typescript(), nx(), firebase()],
+        tags: [cCpp(), verilog(), vtr(), python()],
       },
-      links: [facebook({ url: '#' }), linkedin({ url: '#' })],
+      links: [website({ url: 'https://www.asu.edu' })],
     },
     {
-      role: 'React.js developer',
-      company: 'Facebook',
-      image: import('@/assets/logos/facebook-logo.png'),
-      dates: [new Date('2019-04'), new Date('2020-02')],
+      role: 'Research Assistant - Configurable Voltage FPGA',
+      company: 'Arizona State University',
+      image: import('@/assets/logos/asu-logo.jpg'),
+      dates: [new Date('2025-08'), new Date('2026-01')],
       description: `
-        - Aenean eget ultricies felis. Pellentesque dictum massa ut tellus eleifend, sed posuere massa mattis.
-        - Ut posuere massa lacus, eleifend molestie tortor auctor vel.
-        - Sed sed sollicitudin eros, id ultricies mi. Aliquam sodales elit vel ante tempor, non vehicula nibh facilisis.
-        - Cras feugiat ultricies maximus. Aliquam tristique ex odio, ac semper urna accumsan a.
+Explored mixed-voltage FPGA architectures with on-chip Digital LDOs (DLDOs) to enable drop-in replacement for legacy 3.3V / 5V ICs.
+
+- Designed and evaluated a custom FPGA fabric using OpenFPGA, including architecture selection, scalable fabric generation, and bitstream-based functional verification
+- Performed RTL-to-GDS physical design using OpenLane, including power analysis, DLDO sizing, DRC/LVS sign-off, and tapeout submission on SKY130 technology
       `,
       tagsList: {
         title: 'Technologies',
-        tags: [react(), reactQuery(), chakraUi(), eslint()],
+        tags: [verilog(), openfpga(), openroad(), synopsys(), cadence()],
       },
-      links: [website({ url: '#' }), instagram({ url: '#' })],
+      links: [website({ url: 'https://www.asu.edu' })],
     },
     {
-      role: 'Junior front-end developer',
-      company: 'GitLab',
-      image: import('@/assets/logos/gitlab-logo.png'),
-      dates: [new Date('2016-09'), new Date('2019-04')],
+      role: 'Research Assistant - Azure-Lily: Analog In-Memory Computing (IMC) FPGA Architecture',
+      company: 'Arizona State University',
+      image: import('@/assets/logos/asu-logo.jpg'),
+      dates: [new Date('2025-08'), new Date('2025-11')],
       description: `
-        Nulla volutpat justo ante, rhoncus posuere massa egestas in:
+Conducted design space exploration to integrate RRAM-based IMC engines into a custom FPGA fabric, defining optimal block dimensions, I/O density, and routing interfaces.
 
-        - Quisque pellentesque, dolor nec sollicitudin iaculis, sem velit consequat ligula, eget tempus ligula leo et est.
-        - Maecenas ut elit sit amet nibh maximus condimentum in nec lorem. Pellentesque tincidunt odio vel leo suscipit, in interdum mi gravida.
-
-        Donec non vulputate augue 🤓
+- Developed Verilog benchmarks for LeNet, ResNet, VGG, and Transformer Attention to evaluate AI workload performance on the hybrid architecture
+- Achieved a 6.58× latency reduction and 8,741× energy efficiency gain over baseline FPGA for DNN inference
       `,
       tagsList: {
         title: 'Technologies',
-        tags: [vue(), tailwindCss(), pnpm()],
+        tags: [verilog(), systemverilog(), python(), xilinx()],
       },
-      links: [twitter({ url: '#' }), github({ url: '#' })],
+      links: [website({ url: 'https://www.asu.edu' })],
+    },
+    {
+      role: 'Research Assistant - OpenFPGA-NoC: Automated Fabric and Bitstream Generation for NoC-based FPGAs',
+      company: 'Arizona State University',
+      image: import('@/assets/logos/asu-logo.jpg'),
+      dates: [new Date('2024-08'), new Date('2025-06')],
+      description: `
+Extended OpenFPGA framework to support hardened Network-on-Chips (NoCs) with arbitrary physical topologies.
+
+- Developed a dedicated NoC bitstream generator and configuration mechanism to manage dynamic compile-time address translation and global routing mode selection
+- Evaluated NoC-based architectures through an automated RTL-to-bitstream flow, confirming a 3.66× frequency gain and 15% lower routing congestion for I/O-intensive workloads over traditional fabrics
+      `,
+      tagsList: {
+        title: 'Technologies',
+        tags: [verilog(), openfpga(), vtr(), python()],
+      },
+      links: [website({ url: 'https://www.asu.edu' })],
     },
   ],
 } as const satisfies ReadonlyDeep<ExperienceSection>;

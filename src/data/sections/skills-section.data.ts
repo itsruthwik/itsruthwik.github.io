@@ -1,22 +1,20 @@
 import type { SkillsSection } from '@/types/sections/skills-section.types';
 import type { ReadonlyDeep } from 'type-fest';
 import {
-  apolloGraphql,
-  astro,
-  chakraUi,
-  cypress,
-  eslint,
-  firebase,
-  mongoDb,
-  nestJs,
-  pnpm,
-  postgreSql,
-  prettier,
-  react,
-  sass,
-  supabase,
-  tailwindCss,
+  python,
+  cCpp,
+  verilog,
+  systemverilog,
+  quartus,
+  xilinx,
+  synopsys,
+  cadence,
+  openfpga,
+  openroad,
+  vtr,
   typescript,
+  eslint,
+  prettier,
 } from '../helpers/skills';
 
 const skillsSectionData = {
@@ -28,51 +26,54 @@ const skillsSectionData = {
   },
   skillSets: [
     {
-      title: 'I already know',
+      title: 'Programming Languages',
       skills: [
-        react({
+        python({
           level: 5,
-          description:
-            'Proin ut erat sed massa tempus suscipit. Mauris efficitur nunc sem, nec scelerisque ligula bibendum ut.',
+          description: 'Extensive experience in Python for EDA automation and MLIR development',
+        }),
+        cCpp({
+          level: 4,
+          description: 'C/C++ for HLS development and hardware-software co-design',
         }),
         typescript({
-          level: 4,
-          description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
-        }),
-        sass({
-          level: 4,
-          description: 'Nulla interdum pellentesque ultricies. Ut id eros commodo, ultrices ligula eu, elementum ante.',
-        }),
-        chakraUi({ level: 5 }),
-        tailwindCss({ level: 3 }),
-        prettier({ level: 5 }),
-        eslint({
-          level: 4,
-          description:
-            'Nulla tempor turpis at vehicula pharetra. Vestibulum tellus tortor, commodo et suscipit id, lobortis id nunc.',
-        }),
-        nestJs({
           level: 3,
-          description:
-            'Praesent feugiat ultricies iaculis. In posuere vehicula odio, sed consequat velit porta viverra.',
+          description: 'TypeScript for web development',
         }),
-        postgreSql({ level: 2 }),
-        mongoDb({ level: 1 }),
-        firebase({ level: 1 }),
-        pnpm({ level: 3 }),
       ],
     },
     {
-      title: 'I want to learn',
-      skills: [apolloGraphql(), astro(), supabase(), cypress()],
+      title: 'Hardware Description Languages',
+      skills: [
+        verilog({
+          level: 5,
+          description: 'Extensive experience in Verilog for FPGA design and verification',
+        }),
+        systemverilog({
+          level: 4,
+          description: 'SystemVerilog for advanced verification and testbenches',
+        }),
+      ],
+    },
+    {
+      title: 'EDA Tools',
+      skills: [
+        quartus({ level: 4 }),
+        xilinx({ level: 4 }),
+        synopsys({ level: 4, description: 'VCS, Design Compiler, PrimeTime' }),
+        cadence({ level: 4, description: 'Genus, Innovus, Virtuoso' }),
+        openfpga({ level: 5, description: 'OpenFPGA framework extension and development' }),
+        openroad({ level: 4, description: 'OpenROAD for RTL-to-GDS flow' }),
+        vtr({ level: 5, description: 'VTR/VPR for FPGA architecture exploration' }),
+      ],
+    },
+    {
+      title: 'Development Tools',
+      skills: [eslint({ level: 4 }), prettier({ level: 4 })],
     },
     {
       title: 'I speak',
-      skills: [
-        { icon: 'circle-flags:pl', name: 'Polish - native' },
-        { icon: 'circle-flags:us', name: 'English - C1' },
-        { icon: 'circle-flags:es-variant', name: 'Spanish - B1' },
-      ],
+      skills: [{ icon: 'circle-flags:us', name: 'English - Professional' }],
     },
   ],
 } as const satisfies ReadonlyDeep<SkillsSection>;
