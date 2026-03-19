@@ -22,7 +22,7 @@ const skillsSectionData = {
     title: 'Skills',
     slug: 'skills',
     icon: 'fa6-solid:bars-progress',
-    visible: true,
+    visible: false,
   },
   skillSets: [
     {

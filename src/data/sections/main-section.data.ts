@@ -9,11 +9,10 @@ const mainSectionData = {
     slug: 'profile',
     visible: true,
   },
-  image: import('@/assets/my-image.jpeg'),
+  // image: import('@/assets/my-image.jpeg'),
   fullName: 'Ruthwik Reddy Sunketa',
-  role: 'Computer Engineering PhD Student',
+  role: 'Computer Engineering PhD Student at ASU',
   details: [
-    { label: 'Phone', value: '623-275-8696', url: 'tel:623-275-8696' },
     { label: 'Email', value: 'rsunketa@asu.edu', url: 'mailto:rsunketa@asu.edu' },
     { label: 'From', value: 'Tempe, AZ' },
   ],

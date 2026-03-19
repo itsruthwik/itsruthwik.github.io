@@ -17,13 +17,15 @@ const { action, config, description, details, fullName, image, links, role, tags
 <SectionCard {...config} hideTitle>
   <div class="flex flex-col items-start gap-6 sm:flex-row">
     <div class="flex items-center gap-4 sm:flex-col">
-      <Photo
-        src={image}
-        alt={fullName}
-        width={320}
-        height={320}
-        class="h-24 w-24 max-w-none rounded-lg sm:h-36 sm:w-36 md:h-52 md:w-52"
-      />
+      {image && (
+        <Photo
+          src={image}
+          alt={fullName}
+          width={320}
+          height={320}
+          class="h-24 w-24 max-w-none rounded-lg sm:h-36 sm:w-36 md:h-52 md:w-52"
+        />
+      )}
       <DownloadButton {...action} />
     </div>
     <div class="flex w-full flex-col gap-5">
@@ -43,8 +45,19 @@ const { action, config, description, details, fullName, image, links, role, tags
         }
       </div>
       <div class="flex flex-col gap-6">
-        <div class="inline-grid xl:grid-cols-[auto_auto]">
-          {details.map((detail) => <LabelledValue {...detail} />)}
+        <div class="flex flex-wrap gap-y-1 pr-8">
+          <div class="flex gap-x-2 items-center">
+            <span class="text-base font-medium text-gray-700 dark:text-gray-300">Email:</span>
+            <a href={details[0]?.url} class="text-sm font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 dark:text-gray-300 underline">
+              {details[0]?.value}
+            </a>
+          </div>
+          <div class="flex gap-x-2 items-center ml-auto">
+            <span class="text-base font-medium text-gray-700 dark:text-gray-300">From:</span>
+            <span class="text-sm font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 dark:text-gray-300">
+              {details[1]?.value}
+            </span>
+          </div>
         </div>
         <div class="flex flex-col gap-4">
           <Description content={description} />

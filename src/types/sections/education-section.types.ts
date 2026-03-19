@@ -12,6 +12,11 @@ export interface Diploma {
   institution: string;
 
   /**
+   * Location of the institution (e.g., "Tempe, AZ, USA" or "Telangana, India").
+   */
+  location?: string;
+
+  /**
    * [WEB] Logo of the institution.
    *
    * **Ratio**: 1:1

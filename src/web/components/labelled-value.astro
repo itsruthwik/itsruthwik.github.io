@@ -1,6 +1,6 @@
 ---
 import type { LabelledValue } from '@/types/shared';
-import Typography from './typography.astro';
+import { marked } from 'marked';
 
 export interface Props extends LabelledValue {}
 
@@ -10,17 +10,22 @@ const parsedValue = Array.isArray(value) ? value.join(', ') : value;
 
 const isHttpLink = url?.startsWith('http');
 const target = isHttpLink ? '_blank' : '_self';
+
+// Parse markdown in value (for bold, etc.)
+const renderedValue = marked.parseInline(parsedValue) as string;
 ---
 
-<div>
-  <Typography variant="label">{label}:</Typography>
+<div class="contents">
+  <span class="text-base font-medium text-gray-700 dark:text-gray-300">{label}:</span>
   {
     url ? (
-      <Typography as="a" href={url} target={target} class="underline">
-        {parsedValue}
-      </Typography>
+      <a href={url} target={target} class="text-base dark:text-gray-400 font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 text-sm underline">
+        <span set:html={renderedValue} />
+      </a>
     ) : (
-      <Typography variant="value">{parsedValue}</Typography>
+      <span class="text-base dark:text-gray-400 font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 text-sm">
+        <span set:html={renderedValue} />
+      </span>
     )
   }
 </div>

@@ -17,11 +17,11 @@ const portfolioSectionData = {
   projects: [
     {
       name: 'OpenFPGA-NoC: Automated Fabric and Bitstream Generation for NoC-based FPGAs',
-      dates: [new Date('2024-08'), new Date('2025-06')],
+      dates: [null, null],
       details: [
         { label: 'Venue', value: 'ACM TRETS, 2025' },
         { label: 'Type', value: 'Journal' },
-        { label: 'Authors', value: 'Ruthwik Reddy Sunketa (1st Author)' },
+        { label: 'Authors', value: '**Ruthwik Reddy Sunketa**, Muhammad Ali Farooq, Ganesh Gore, Allen Boston, Pierre-Emmanuel Gaillardon, and Aman Arora' },
       ],
       pdfDetails: [{ label: 'DOI', value: 'TBD', url: '#' }],
       description:
@@ -34,11 +34,11 @@ const portfolioSectionData = {
     },
     {
       name: 'Closing the Loop on FPGA Verification: An Iterative Framework for Maximizing Routing Resource Coverage',
-      dates: [new Date('2026'), null],
+      dates: [null, null],
       details: [
         { label: 'Venue', value: 'ACM ISFPGA, 2026' },
         { label: 'Type', value: 'Poster' },
-        { label: 'Authors', value: 'Ruthwik Reddy Sunketa (1st Author)' },
+        { label: 'Authors', value: '**Ruthwik Reddy Sunketa** and Aman Arora' },
       ],
       pdfDetails: [{ label: 'DOI', value: 'TBD', url: '#' }],
       description:
@@ -51,11 +51,11 @@ const portfolioSectionData = {
     },
     {
       name: 'Azure-Lily: An FPGA Architecture with Analog IMC Engines for Efficient AI',
-      dates: [new Date('2025-08'), new Date('2025-11')],
+      dates: [null, null],
       details: [
         { label: 'Venue', value: 'ACM TACO, 2026' },
         { label: 'Type', value: 'Journal' },
-        { label: 'Authors', value: 'Ruthwik Reddy Sunketa (2nd Author)' },
+        { label: 'Authors', value: 'Archit Gajjar, **Ruthwik Reddy Sunketa**, Lei Zhao, Omar Eldash, Aishwarya Natarajan, Giacomo Pedretti, Aman Arora, Paolo Faraboschi, Jim Ignowski, and Luca Buonanno' },
       ],
       pdfDetails: [{ label: 'DOI', value: 'TBD', url: '#' }],
       description:

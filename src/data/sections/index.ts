@@ -10,10 +10,10 @@ import testimonialsData from './testimonials-section.data';
 
 export const sections = {
   main: mainData,
+  education: educationData,
+  portfolio: portfolioData,
   skills: skillsData,
   experience: experienceData,
-  portfolio: portfolioData,
-  education: educationData,
   testimonials: testimonialsData,
   favorites: favoritesData,
 } as const satisfies ReadonlyDeep<Sections>;

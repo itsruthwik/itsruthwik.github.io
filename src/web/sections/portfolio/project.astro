@@ -33,7 +33,7 @@ const screenshotsTooltip = screenshotsConfig?.title || 'Screenshots';
           <div class="flex w-full justify-between">
             <div>
               <Typography variant="item-title">{name}</Typography>
-              <Timestamp dates={dates} />
+              {dates[0] && <Timestamp dates={dates} />}
             </div>
             <div class="flex gap-2">
               {links.map((link) => <LinkButton {...link} />)}
@@ -45,8 +45,40 @@ const screenshotsTooltip = screenshotsConfig?.title || 'Screenshots';
             </div>
           </div>
         </div>
-        <div class="inline-grid w-full xl:grid-cols-[auto_auto]">
-          {details.map((detail) => <LabelledValue {...detail} />)}
+        <div class="w-full flex flex-col gap-1 pr-8">
+          <div class="flex flex-wrap gap-y-1">
+            <div class="flex gap-x-2 items-center">
+              <span class="text-base font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Venue:</span>
+              {
+                details[0].url ? (
+                  <a href={details[0].url} target="_blank" class="text-base dark:text-gray-400 font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 text-sm underline">
+                    {details[0].value}
+                  </a>
+                ) : (
+                  <span class="text-base dark:text-gray-400 font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 text-sm">
+                    {details[0].value}
+                  </span>
+                )
+              }
+            </div>
+            <div class="flex gap-x-2 items-center ml-auto">
+              <span class="text-base font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">Type:</span>
+              {
+                details[1].url ? (
+                  <a href={details[1].url} target="_blank" class="text-base dark:text-gray-400 font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 text-sm underline">
+                    {details[1].value}
+                  </a>
+                ) : (
+                  <span class="text-base dark:text-gray-400 font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 text-sm">
+                    {details[1].value}
+                  </span>
+                )
+              }
+            </div>
+          </div>
+          {details.slice(2).map((detail) => (
+            <LabelledValue {...detail} />
+          ))}
         </div>
       </div>
     </div>
