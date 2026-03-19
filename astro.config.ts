@@ -8,7 +8,6 @@ import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig({
   output: 'static',
   site: 'https://itsruthwik.github.io',
-  base: '/itsruthwik',
   integrations: [tailwind(), image(), compress()],
   vite: {
     plugins: [visualizer()],
