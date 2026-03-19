@@ -25,7 +25,6 @@ const experienceSectionData = {
     {
       role: 'Research Assistant - HLS-to-VTR: Architecture-Aware High-Level Synthesis',
       company: 'Arizona State University',
-      image: import('@/assets/logos/asu-logo.jpg'),
       dates: [new Date('2025-12'), null],
       description: `
 Developing HLS frontend for VTR framework to enable architecture-aware RTL generation from C/C++ designs.
@@ -41,7 +40,6 @@ Developing HLS frontend for VTR framework to enable architecture-aware RTL gener
     {
       role: 'Research Assistant - Configurable Voltage FPGA',
       company: 'Arizona State University',
-      image: import('@/assets/logos/asu-logo.jpg'),
       dates: [new Date('2025-08'), new Date('2026-01')],
       description: `
 Explored mixed-voltage FPGA architectures with on-chip Digital LDOs (DLDOs) to enable drop-in replacement for legacy 3.3V / 5V ICs.
@@ -58,7 +56,6 @@ Explored mixed-voltage FPGA architectures with on-chip Digital LDOs (DLDOs) to e
     {
       role: 'Research Assistant - Azure-Lily: Analog In-Memory Computing (IMC) FPGA Architecture',
       company: 'Arizona State University',
-      image: import('@/assets/logos/asu-logo.jpg'),
       dates: [new Date('2025-08'), new Date('2025-11')],
       description: `
 Conducted design space exploration to integrate RRAM-based IMC engines into a custom FPGA fabric, defining optimal block dimensions, I/O density, and routing interfaces.
@@ -75,7 +72,6 @@ Conducted design space exploration to integrate RRAM-based IMC engines into a cu
     {
       role: 'Research Assistant - OpenFPGA-NoC: Automated Fabric and Bitstream Generation for NoC-based FPGAs',
       company: 'Arizona State University',
-      image: import('@/assets/logos/asu-logo.jpg'),
       dates: [new Date('2024-08'), new Date('2025-06')],
       description: `
 Extended OpenFPGA framework to support hardened Network-on-Chips (NoCs) with arbitrary physical topologies.

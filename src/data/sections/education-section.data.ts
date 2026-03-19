@@ -13,7 +13,6 @@ const educationSectionData = {
     {
       title: 'Ph.D. in Computer Engineering',
       institution: 'Arizona State University',
-      image: import('@/assets/logos/asu-logo.jpg'),
       dates: [new Date('2025-08'), null],
       description: 'Specialization in FPGA architecture, design, and automated EDA flows.',
       links: [website({ url: 'https://www.asu.edu' })],
@@ -21,7 +20,6 @@ const educationSectionData = {
     {
       title: "Master's in Computer Engineering",
       institution: 'Arizona State University',
-      image: import('@/assets/logos/asu-logo.jpg'),
       dates: [new Date('2023-08'), new Date('2025-07')],
       description:
         'Relevant Coursework: Reconfigurable Computing, VLSI Design, Hardware Security and Trust, Advanced Hardware and Systems for Machine Learning, Statistical Machine Learning, Real-Time Digital Signal Processing.',
@@ -30,7 +28,6 @@ const educationSectionData = {
     {
       title: 'Bachelor of Engineering in Electronics and Communication Engineering',
       institution: 'Osmania University',
-      image: import('@/assets/logos/ou-logo.jpg'),
       dates: [new Date('2019-08'), new Date('2023-05')],
       description: 'Location: Hyderabad, India',
       links: [website({ url: 'https://www.osmania.ac.in' })],

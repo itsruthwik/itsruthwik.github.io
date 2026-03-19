@@ -17,7 +17,6 @@ const portfolioSectionData = {
   projects: [
     {
       name: 'OpenFPGA-NoC: Automated Fabric and Bitstream Generation for NoC-based FPGAs',
-      image: import('@/assets/portfolio/publication-1.jpeg'),
       dates: [new Date('2024-08'), new Date('2025-06')],
       details: [
         { label: 'Venue', value: 'ACM TRETS, 2025' },
@@ -35,7 +34,6 @@ const portfolioSectionData = {
     },
     {
       name: 'Closing the Loop on FPGA Verification: An Iterative Framework for Maximizing Routing Resource Coverage',
-      image: import('@/assets/portfolio/publication-2.jpeg'),
       dates: [new Date('2026'), null],
       details: [
         { label: 'Venue', value: 'ACM ISFPGA, 2026' },
@@ -53,7 +51,6 @@ const portfolioSectionData = {
     },
     {
       name: 'Azure-Lily: An FPGA Architecture with Analog IMC Engines for Efficient AI',
-      image: import('@/assets/portfolio/publication-3.jpeg'),
       dates: [new Date('2025-08'), new Date('2025-11')],
       details: [
         { label: 'Venue', value: 'ACM TACO, 2026' },
