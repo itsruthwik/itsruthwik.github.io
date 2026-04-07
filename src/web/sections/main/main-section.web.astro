@@ -15,18 +15,17 @@ const { action, config, description, details, fullName, image, links, role, tags
 ---
 
 <SectionCard {...config} hideTitle>
-  <div class="flex flex-col items-start gap-6 sm:flex-row">
+  <div class="flex flex-col items-center gap-6 sm:flex-row">
     <div class="flex items-center gap-4 sm:flex-col">
       {image && (
         <Photo
           src={image}
           alt={fullName}
           width={320}
-          height={320}
-          class="h-24 w-24 max-w-none rounded-lg sm:h-36 sm:w-36 md:h-52 md:w-52"
+          height={427}
+          class="h-32 w-24 max-w-none rounded-lg sm:h-48 sm:w-36 md:h-64 md:w-48"
         />
       )}
-      <DownloadButton {...action} />
     </div>
     <div class="flex w-full flex-col gap-5">
       <div class="flex w-full flex-col justify-between gap-2 sm:flex-row">
@@ -40,6 +39,15 @@ const { action, config, description, details, fullName, image, links, role, tags
               {links.map((link) => (
                 <LinkButton {...link} />
               ))}
+              <a
+                href={action.url}
+                download={action.downloadedFileName}
+                class="flex items-center bg-gray-100 rounded active:translate-y-px dark:bg-gray-600 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 h-7 justify-center text-gray-400 px-2.5 text-sm font-medium"
+                aria-label="Download CV"
+                data-tooltip="Download CV"
+              >
+                Resume
+              </a>
             </div>
           )
         }
@@ -53,7 +61,7 @@ const { action, config, description, details, fullName, image, links, role, tags
             </a>
           </div>
           <div class="flex gap-x-2 items-center ml-auto">
-            <span class="text-base font-medium text-gray-700 dark:text-gray-300">From:</span>
+            <span class="text-base font-medium text-gray-700 dark:text-gray-300">Based in:</span>
             <span class="text-sm font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 dark:text-gray-300">
               {details[1]?.value}
             </span>

@@ -23,14 +23,14 @@ const portfolioSectionData = {
         { label: 'Type', value: 'Journal' },
         { label: 'Authors', value: '**Ruthwik Reddy Sunketa**, Muhammad Ali Farooq, Ganesh Gore, Allen Boston, Pierre-Emmanuel Gaillardon, and Aman Arora' },
       ],
-      pdfDetails: [{ label: 'DOI', value: 'TBD', url: '#' }],
+      pdfDetails: [{ label: 'DOI', value: '10.1145/3779449', url: 'https://doi.org/10.1145/3779449' }],
       description:
         'Extended OpenFPGA framework to support hardened Network-on-Chips (NoCs) with arbitrary physical topologies. Developed a dedicated NoC bitstream generator and configuration mechanism to manage dynamic compile-time address translation and global routing mode selection. Evaluated NoC-based architectures through an automated RTL-to-bitstream flow, confirming a **3.66× frequency gain** and **15% lower routing congestion** for I/O-intensive workloads over traditional fabrics.',
       tagsList: {
         title: 'Keywords',
         tags: [verilog(), openfpga(), vtr(), python()],
       },
-      links: [website({ url: '#' })],
+      links: [website({ url: 'https://doi.org/10.1145/3779449' })],
     },
     {
       name: 'Closing the Loop on FPGA Verification: An Iterative Framework for Maximizing Routing Resource Coverage',
@@ -40,14 +40,14 @@ const portfolioSectionData = {
         { label: 'Type', value: 'Poster' },
         { label: 'Authors', value: '**Ruthwik Reddy Sunketa** and Aman Arora' },
       ],
-      pdfDetails: [{ label: 'DOI', value: 'TBD', url: '#' }],
+      pdfDetails: [{ label: 'DOI', value: '10.1145/3748173.3779567', url: 'https://doi.org/10.1145/3748173.3779567' }],
       description:
         'Developed an iterative framework for FPGA verification that maximizes routing resource coverage. This work addresses the critical need for comprehensive verification methodologies in FPGA design flows.',
       tagsList: {
         title: 'Keywords',
         tags: [verilog(), vtr(), python()],
       },
-      links: [website({ url: '#' })],
+      links: [website({ url: 'https://doi.org/10.1145/3748173.3779567' })],
     },
     {
       name: 'Azure-Lily: An FPGA Architecture with Analog IMC Engines for Efficient AI',
@@ -57,14 +57,14 @@ const portfolioSectionData = {
         { label: 'Type', value: 'Journal' },
         { label: 'Authors', value: 'Archit Gajjar, **Ruthwik Reddy Sunketa**, Lei Zhao, Omar Eldash, Aishwarya Natarajan, Giacomo Pedretti, Aman Arora, Paolo Faraboschi, Jim Ignowski, and Luca Buonanno' },
       ],
-      pdfDetails: [{ label: 'DOI', value: 'TBD', url: '#' }],
+      pdfDetails: [{ label: 'DOI', value: '10.1145/3796723', url: 'https://doi.org/10.1145/3796723' }],
       description:
         'Conducted design space exploration to integrate RRAM-based IMC engines into a custom FPGA fabric. Developed Verilog benchmarks for LeNet, ResNet, VGG, and Transformer Attention to evaluate AI workload performance. Achieved a **6.58× latency reduction** and **8,741× energy efficiency gain** over baseline FPGA for DNN inference.',
       tagsList: {
         title: 'Keywords',
         tags: [verilog(), xilinx(), python(), synopsys(), cadence()],
       },
-      links: [website({ url: '#' })],
+      links: [website({ url: 'https://doi.org/10.1145/3796723' })],
     },
   ],
 } as const satisfies ReadonlyDeep<PortfolioSection>;

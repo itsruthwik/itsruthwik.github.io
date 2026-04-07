@@ -15,7 +15,7 @@ const educationSectionData = {
       institution: 'Arizona State University',
       location: 'Tempe, AZ, USA',
       dates: [new Date('2025-08'), null],
-      description: 'Specialization in FPGA architecture, design, and automated EDA flows.',
+      description: '',
       links: [website({ url: 'https://www.asu.edu' })],
     },
     {
@@ -23,17 +23,16 @@ const educationSectionData = {
       institution: 'Arizona State University',
       location: 'Tempe, AZ, USA',
       dates: [new Date('2023-08'), new Date('2025-07')],
-      description:
-        'Relevant Coursework: Reconfigurable Computing, VLSI Design, Hardware Security and Trust, Advanced Hardware and Systems for Machine Learning, Statistical Machine Learning, Real-Time Digital Signal Processing.',
+      description: '',
       links: [website({ url: 'https://www.asu.edu' })],
     },
     {
       title: 'B.E. in Electronics and Communication Engineering',
       institution: 'Osmania University',
-      location: 'Telangana, India',
+      location: 'Hyderabad, Telangana, India',
       dates: [new Date('2019-08'), new Date('2023-05')],
-      description: 'Location: Hyderabad, India',
-      links: [website({ url: 'https://www.osmania.ac.in' })],
+      description: '',
+      links: [website({ url: 'https://uceou.edu/' })],
     },
   ],
 } as const satisfies ReadonlyDeep<EducationSection>;

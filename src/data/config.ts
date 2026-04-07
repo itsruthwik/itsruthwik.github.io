@@ -14,10 +14,7 @@ const config = {
     title: 'Ruthwik Reddy Sunketa - Computer Engineering PhD Student',
     description:
       'Computer Engineering PhD student at Arizona State University specializing in FPGA architecture, design, and automated EDA flows. Research focuses on next-generation FPGA architectures for AI/ML workload acceleration and hardware-software co-design.',
-    faviconPath: '/src/assets/my-image.jpeg',
-  },
-  pdf: {
-    footer: 'Computer Engineering PhD Student at Arizona State University',
+    faviconPath: '/src/assets/ruthwik-s.jpg',
   },
 } as const satisfies ReadonlyDeep<Config>;
 
