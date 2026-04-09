@@ -16,74 +16,55 @@ import {
 
 const experienceSectionData = {
   config: {
-    title: 'Research Experience',
+    title: 'Experience',
     slug: 'research',
     icon: 'fa6-solid:microscope',
-    visible: false,
+    visible: true,
   },
   jobs: [
     {
-      role: 'Research Assistant - HLS-to-VTR: Architecture-Aware High-Level Synthesis',
-      company: 'Arizona State University',
-      dates: [new Date('2025-12'), null],
-      description: `
-Developing HLS frontend for VTR framework to enable architecture-aware RTL generation from C/C++ designs.
-
-- Implementing custom MLIR lowering passes to automate the mapping of high-level algorithmic operations to specialized hardware like tensor slices and Processing-In-Memory (PIM) blocks
-      `,
+      company: 'Instructional Assistant - CEN 598: Advanced Digital Design and Verification, Teaching Assistant - CSE 325: Embedded Microprocessor Systems',
+      role: 'Arizona State University',
+      dates: [new Date('2025-05'), new Date('2025-07')],
+      description: 'Tempe, AZ, USA',
       tagsList: {
-        title: 'Technologies',
-        tags: [cCpp(), verilog(), vtr(), python()],
+        title: '',
+        tags: [],
       },
       links: [website({ url: 'https://www.asu.edu' })],
     },
     {
-      role: 'Research Assistant - Configurable Voltage FPGA',
-      company: 'Arizona State University',
-      dates: [new Date('2025-08'), new Date('2026-01')],
-      description: `
-Explored mixed-voltage FPGA architectures with on-chip Digital LDOs (DLDOs) to enable drop-in replacement for legacy 3.3V / 5V ICs.
-
-- Designed and evaluated a custom FPGA fabric using OpenFPGA, including architecture selection, scalable fabric generation, and bitstream-based functional verification
-- Performed RTL-to-GDS physical design using OpenLane, including power analysis, DLDO sizing, DRC/LVS sign-off, and tapeout submission on SKY130 technology
-      `,
+      company: 'Teaching Assistant - CSE 325: Embedded Microprocessor Systems',
+      role: 'Arizona State University',
+      dates: [new Date('2024-08'), new Date('2024-12')],
+      description: 'Tempe, AZ, USA',
       tagsList: {
-        title: 'Technologies',
-        tags: [verilog(), openfpga(), openroad(), synopsys(), cadence()],
+        title: '',
+        tags: [],
       },
       links: [website({ url: 'https://www.asu.edu' })],
     },
     {
-      role: 'Research Assistant - Azure-Lily: Analog In-Memory Computing (IMC) FPGA Architecture',
-      company: 'Arizona State University',
-      dates: [new Date('2025-08'), new Date('2025-11')],
-      description: `
-Conducted design space exploration to integrate RRAM-based IMC engines into a custom FPGA fabric, defining optimal block dimensions, I/O density, and routing interfaces.
-
-- Developed Verilog benchmarks for LeNet, ResNet, VGG, and Transformer Attention to evaluate AI workload performance on the hybrid architecture
-- Achieved a 6.58× latency reduction and 8,741× energy efficiency gain over baseline FPGA for DNN inference
-      `,
+      company: 'Intern (Systems V&V)',
+      role: 'Medtronic',
+      dates: [new Date('2023-02'), new Date('2023-07')],
+      description: 'Hyderabad, Telangana, India',
       tagsList: {
-        title: 'Technologies',
-        tags: [verilog(), systemverilog(), python(), xilinx()],
+        title: '',
+        tags: [],
       },
-      links: [website({ url: 'https://www.asu.edu' })],
+      links: [website({ url: 'https://www.medtronic.com' })],
     },
     {
-      role: 'Research Assistant - OpenFPGA-NoC: Automated Fabric and Bitstream Generation for NoC-based FPGAs',
-      company: 'Arizona State University',
-      dates: [new Date('2024-08'), new Date('2025-06')],
-      description: `
-Extended OpenFPGA framework to support hardened Network-on-Chips (NoCs) with arbitrary physical topologies.
-
-- Developed a dedicated NoC bitstream generator and configuration mechanism to manage dynamic compile-time address translation and global routing mode selection
-- Evaluated NoC-based architectures through an automated RTL-to-bitstream flow, confirming a 3.66× frequency gain and 15% lower routing congestion for I/O-intensive workloads over traditional fabrics
-      `,
+      company: 'Project Intern (Hardware in Loop Simulation)',
+      role: 'DRDO, Ministry of Defence, Govt. of India',
+      dates: [new Date('2022-05'), new Date('2022-09')],
+      description: 'Hyderabad, Telangana, India',
       tagsList: {
-        title: 'Technologies',
-        tags: [verilog(), openfpga(), vtr(), python()],
+        title: '',
+        tags: [],
       },
-      links: [website({ url: 'https://www.asu.edu' })],
+      links: [],
     },
   ],
 } as const satisfies ReadonlyDeep<ExperienceSection>;

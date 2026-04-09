@@ -21,6 +21,14 @@ export interface MainSection extends Section {
   role: string;
 
   /**
+   * Optional link for part of the role text (e.g., lab or department website).
+   */
+  roleLink?: {
+    text: string;
+    url: string;
+  };
+
+  /**
    * Label-value pairs with some key details about you.
    *
    * E.g. phone, email, location, expected salary.

@@ -11,7 +11,11 @@ const mainSectionData = {
   },
   image: import('@/assets/ruthwik.jpg'),
   fullName: 'Ruthwik Reddy Sunketa',
-  role: 'Computer Engineering PhD Student at ASU',
+  role: 'PhD student at',
+  roleLink: {
+    text: 'Advent Lab, ASU',
+    url: 'https://labs.engineering.asu.edu/advent/',
+  },
   details: [
     { label: 'Email', value: 'rsunketa@asu.edu', url: 'mailto:rsunketa@asu.edu' },
     { label: 'Based in', value: 'Tempe, AZ' },

@@ -20,7 +20,7 @@ export type Photo = Promise<{ default: ImageMetadata }> | string;
  * If the second date is `null`, it means that the period is still ongoing.
  * In such case, the translation from `config.i18n.translations.now` will be used.
  */
-export type DateRange = [from: Date, to: Date | null];
+export type DateRange = [from: Date | null, to: Date | null];
 
 export interface SectionConfig {
   /**

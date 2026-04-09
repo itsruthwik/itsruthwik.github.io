@@ -148,6 +148,11 @@ export const website = createLinkFactory({
   icon: 'fa6-solid:globe',
 });
 
+export const pdf = createLinkFactory({
+  name: 'PDF',
+  icon: 'fa6-solid:file-pdf',
+});
+
 export const demo = createLinkFactory({
   name: 'App demo',
   icon: 'fa6-solid:desktop',

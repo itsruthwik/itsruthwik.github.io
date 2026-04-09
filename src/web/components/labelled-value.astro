@@ -15,17 +15,17 @@ const target = isHttpLink ? '_blank' : '_self';
 const renderedValue = marked.parseInline(parsedValue) as string;
 ---
 
-<div class="contents">
-  <span class="text-base font-medium text-gray-700 dark:text-gray-300">{label}:</span>
+<p
+  class="text-base text-sm font-normal leading-relaxed text-gray-500 dark:text-gray-400 sm:text-base sm:leading-relaxed"
+>
+  <span class="font-medium text-gray-700 dark:text-gray-300">{label}:</span>
   {
     url ? (
-      <a href={url} target={target} class="text-base dark:text-gray-400 font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 text-sm underline">
+      <a href={url} target={target} class="underline">
         <span set:html={renderedValue} />
       </a>
     ) : (
-      <span class="text-base dark:text-gray-400 font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 text-sm">
-        <span set:html={renderedValue} />
-      </span>
+      <span set:html={renderedValue} />
     )
   }
-</div>
+</p>

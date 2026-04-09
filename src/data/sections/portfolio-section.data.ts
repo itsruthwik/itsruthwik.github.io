@@ -1,6 +1,6 @@
 import type { PortfolioSection } from '@/types/sections/portfolio-section.types';
 import type { ReadonlyDeep } from 'type-fest';
-import { website } from '../helpers/links';
+import { pdf } from '../helpers/links';
 import { python, verilog, vtr, openfpga, xilinx, synopsys, cadence } from '../helpers/skills';
 
 const portfolioSectionData = {
@@ -21,7 +21,11 @@ const portfolioSectionData = {
       details: [
         { label: 'Venue', value: 'ACM TRETS, 2025' },
         { label: 'Type', value: 'Journal' },
-        { label: 'Authors', value: '**Ruthwik Reddy Sunketa**, Muhammad Ali Farooq, Ganesh Gore, Allen Boston, Pierre-Emmanuel Gaillardon, and Aman Arora' },
+        {
+          label: 'Authors',
+          value:
+            '**Ruthwik Reddy Sunketa**, Muhammad Ali Farooq, Ganesh Gore, Allen Boston, Pierre-Emmanuel Gaillardon, and Aman Arora',
+        },
       ],
       pdfDetails: [{ label: 'DOI', value: '10.1145/3779449', url: 'https://doi.org/10.1145/3779449' }],
       description:
@@ -30,7 +34,7 @@ const portfolioSectionData = {
         title: 'Keywords',
         tags: [verilog(), openfpga(), vtr(), python()],
       },
-      links: [website({ url: 'https://doi.org/10.1145/3779449' })],
+      links: [pdf({ url: 'https://doi.org/10.1145/3779449' })],
     },
     {
       name: 'Closing the Loop on FPGA Verification: An Iterative Framework for Maximizing Routing Resource Coverage',
@@ -47,7 +51,7 @@ const portfolioSectionData = {
         title: 'Keywords',
         tags: [verilog(), vtr(), python()],
       },
-      links: [website({ url: 'https://doi.org/10.1145/3748173.3779567' })],
+      links: [pdf({ url: 'https://doi.org/10.1145/3748173.3779567' })],
     },
     {
       name: 'Azure-Lily: An FPGA Architecture with Analog IMC Engines for Efficient AI',
@@ -55,7 +59,11 @@ const portfolioSectionData = {
       details: [
         { label: 'Venue', value: 'ACM TACO, 2026' },
         { label: 'Type', value: 'Journal' },
-        { label: 'Authors', value: 'Archit Gajjar, **Ruthwik Reddy Sunketa**, Lei Zhao, Omar Eldash, Aishwarya Natarajan, Giacomo Pedretti, Aman Arora, Paolo Faraboschi, Jim Ignowski, and Luca Buonanno' },
+        {
+          label: 'Authors',
+          value:
+            'Archit Gajjar, **Ruthwik Reddy Sunketa**, Lei Zhao, Omar Eldash, Aishwarya Natarajan, Giacomo Pedretti, Aman Arora, Paolo Faraboschi, Jim Ignowski, and Luca Buonanno',
+        },
       ],
       pdfDetails: [{ label: 'DOI', value: '10.1145/3796723', url: 'https://doi.org/10.1145/3796723' }],
       description:
@@ -64,7 +72,26 @@ const portfolioSectionData = {
         title: 'Keywords',
         tags: [verilog(), xilinx(), python(), synopsys(), cadence()],
       },
-      links: [website({ url: 'https://doi.org/10.1145/3796723' })],
+      links: [pdf({ url: 'https://doi.org/10.1145/3796723' })],
+    },
+    {
+      name: 'Programming Domain-Specific FPGA Hardblocks from HLS: An RTL Blackbox Approach',
+      dates: [null, null],
+      details: [
+        { label: 'Venue', value: 'RAW, 2026' },
+        { label: 'Type', value: 'Workshop' },
+        {
+          label: 'Authors',
+          value: '**Ruthwik Reddy Sunketa**, Jeevesh Choudhury, and Aman Arora',
+        },
+      ],
+      pdfDetails: [],
+      description: 'Workshop paper accepted at RAW 2026. Details to be updated upon publication.',
+      tagsList: {
+        title: 'Keywords',
+        tags: [],
+      },
+      links: [],
     },
   ],
 } as const satisfies ReadonlyDeep<PortfolioSection>;

@@ -1,37 +1,45 @@
 ---
 import type { MainSection } from '@/types/sections/main-section.types';
 import Description from '@/web/components/description.astro';
-import DownloadButton from '@/web/components/download-button.astro';
 import LinkButton from '@/web/components/link-button.astro';
 import Photo from '@/components/photo.astro';
 import SectionCard from '@/web/components/section-card.astro';
 import TagsList from '@/web/components/tags-list.astro';
 import Typography from '@/web/components/typography.astro';
-import LabelledValue from '@/web/components/labelled-value.astro';
 
 export interface Props extends MainSection {}
 
-const { action, config, description, details, fullName, image, links, role, tags } = Astro.props;
+const { action, config, description, details, fullName, image, links, role, roleLink, tags } = Astro.props;
 ---
 
 <SectionCard {...config} hideTitle>
   <div class="flex flex-col items-center gap-6 sm:flex-row">
     <div class="flex items-center gap-4 sm:flex-col">
-      {image && (
-        <Photo
-          src={image}
-          alt={fullName}
-          width={320}
-          height={427}
-          class="h-32 w-24 max-w-none rounded-lg sm:h-48 sm:w-36 md:h-64 md:w-48"
-        />
-      )}
+      {
+        image && (
+          <Photo
+            src={image}
+            alt={fullName}
+            width={320}
+            height={427}
+            class="h-32 w-24 max-w-none rounded-lg sm:h-48 sm:w-36 md:h-64 md:w-48"
+          />
+        )
+      }
     </div>
     <div class="flex w-full flex-col gap-5">
       <div class="flex w-full flex-col justify-between gap-2 sm:flex-row">
         <div class="w-full">
           <Typography variant="main-title">{fullName}</Typography>
-          <Typography variant="main-subtitle">{role}</Typography>
+          {roleLink ? (
+            <Typography variant="main-subtitle">
+              {role} <a href={roleLink.url} target="_blank" rel="noopener noreferrer" class="text-base font-medium text-gray-700 underline decoration-gray-300 decoration-1 underline-offset-2 hover:text-primary-600 hover:decoration-primary-600 dark:text-gray-100 dark:decoration-gray-500 dark:hover:text-primary-400 dark:hover:decoration-primary-400 sm:text-lg">
+                {roleLink.text}
+              </a>
+            </Typography>
+          ) : (
+            <Typography variant="main-subtitle">{role}</Typography>
+          )}
         </div>
         {
           links.length > 0 && (
@@ -41,10 +49,10 @@ const { action, config, description, details, fullName, image, links, role, tags
               ))}
               <a
                 href={action.url}
-                download={action.downloadedFileName}
-                class="flex items-center bg-gray-100 rounded active:translate-y-px dark:bg-gray-600 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 h-7 justify-center text-gray-400 px-2.5 text-sm font-medium"
-                aria-label="Download CV"
-                data-tooltip="Download CV"
+                target="_blank"
+                class="flex h-7 items-center justify-center rounded bg-gray-100 px-2.5 text-sm font-medium text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 active:translate-y-px dark:bg-gray-600 dark:text-gray-200"
+                aria-label="Resume"
+                data-tooltip="Resume"
               >
                 Resume
               </a>
@@ -54,15 +62,20 @@ const { action, config, description, details, fullName, image, links, role, tags
       </div>
       <div class="flex flex-col gap-6">
         <div class="flex flex-wrap gap-y-1 pr-8">
-          <div class="flex gap-x-2 items-center">
+          <div class="flex items-center gap-x-2">
             <span class="text-base font-medium text-gray-700 dark:text-gray-300">Email:</span>
-            <a href={details[0]?.url} class="text-sm font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 dark:text-gray-300 underline">
+            <a
+              href={details[0]?.url}
+              class="text-sm font-normal leading-relaxed text-gray-500 underline dark:text-gray-300 sm:text-base sm:leading-relaxed"
+            >
               {details[0]?.value}
             </a>
           </div>
-          <div class="flex gap-x-2 items-center ml-auto">
+          <div class="ml-auto flex items-center gap-x-2">
             <span class="text-base font-medium text-gray-700 dark:text-gray-300">Based in:</span>
-            <span class="text-sm font-normal leading-relaxed sm:leading-relaxed sm:text-base text-gray-500 dark:text-gray-300">
+            <span
+              class="text-sm font-normal leading-relaxed text-gray-500 dark:text-gray-300 sm:text-base sm:leading-relaxed"
+            >
               {details[1]?.value}
             </span>
           </div>
