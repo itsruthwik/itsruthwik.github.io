@@ -1,7 +1,6 @@
 import type { PortfolioSection } from '@/types/sections/portfolio-section.types';
 import type { ReadonlyDeep } from 'type-fest';
 import { pdf } from '../helpers/links';
-import { python, verilog, vtr, openfpga, xilinx, synopsys, cadence } from '../helpers/skills';
 
 const portfolioSectionData = {
   config: {
@@ -30,8 +29,7 @@ const portfolioSectionData = {
       description:
         'Introduced ATLAS, an automated flow that transforms high-level deep learning models directly into FPGA implementations without manual RTL work. The system pairs a compiler frontend that converts DL layers into architecture-agnostic GEMM function calls with a backend generator that produces optimized RTL wrappers with tiling and control logic. Evaluated across 11 designs, from individual layers (fully connected, convolution, attention) to complete models (CNNs, MLPs, Transformers), targeting FPGA architectures with specialized tensor acceleration hardware.',
       tagsList: {
-        title: 'Keywords',
-        tags: [verilog(), vtr(), xilinx(), python()],
+        tags: [],
       },
       links: [pdf({ url: 'https://arxiv.org/abs/2607.07643' })],
     },
@@ -50,8 +48,7 @@ const portfolioSectionData = {
       description:
         'Proposed an architecture combining analog in-memory computing (IMC) blocks with FPGAs, replacing traditional ADCs with analog content-addressable memories (ACAMs) to enable nonlinear operations and dynamic matrix computations directly within IMC blocks. Conducted design-space exploration to optimize crossbar dimensions and developed efficient mapping strategies for attention-based models, achieving **up to 40× higher energy efficiency** and **4.1× higher area efficiency** on CNN and Transformer benchmarks while maintaining robust performance on long input sequences.',
       tagsList: {
-        title: 'Keywords',
-        tags: [verilog(), xilinx(), python()],
+        tags: [],
       },
       links: [pdf({ url: 'https://arxiv.org/abs/2607.15123' })],
     },
@@ -70,8 +67,7 @@ const portfolioSectionData = {
       description:
         'Proposed a compiler-independent methodology that lets high-level synthesis tools access custom FPGA hardblocks directly from C/C++ source, treating architectural hardblocks as schedulable operators through an RTL blackbox abstraction with explicit latency and timing contracts. Evaluated on a Tensor Slice-based FPGA architecture using AMD Vitis HLS and the VTR toolchain, achieving **lower area-delay product** than behavioral HLS baselines and substantially higher productivity-adjusted efficiency than handwritten RTL.',
       tagsList: {
-        title: 'Keywords',
-        tags: [verilog(), vtr(), xilinx(), python()],
+        tags: [],
       },
       links: [pdf({ url: 'https://arxiv.org/abs/2606.08380' })],
     },
@@ -91,8 +87,7 @@ const portfolioSectionData = {
       description:
         'Conducted design space exploration to integrate RRAM-based IMC engines into a custom FPGA fabric. Developed Verilog benchmarks for LeNet, ResNet, VGG, and Transformer Attention to evaluate AI workload performance. Achieved a **6.58× latency reduction** and **8,741× energy efficiency gain** over baseline FPGA for DNN inference.',
       tagsList: {
-        title: 'Keywords',
-        tags: [verilog(), xilinx(), python(), synopsys(), cadence()],
+        tags: [],
       },
       links: [pdf({ url: 'https://doi.org/10.1145/3796723' })],
     },
@@ -108,8 +103,7 @@ const portfolioSectionData = {
       description:
         'Developed an iterative framework for FPGA verification that maximizes routing resource coverage. This work addresses the critical need for comprehensive verification methodologies in FPGA design flows.',
       tagsList: {
-        title: 'Keywords',
-        tags: [verilog(), vtr(), python()],
+        tags: [],
       },
       links: [pdf({ url: 'https://doi.org/10.1145/3748173.3779567' })],
     },
@@ -129,8 +123,7 @@ const portfolioSectionData = {
       description:
         'Extended OpenFPGA framework to support hardened Network-on-Chips (NoCs) with arbitrary physical topologies. Developed a dedicated NoC bitstream generator and configuration mechanism to manage dynamic compile-time address translation and global routing mode selection. Evaluated NoC-based architectures through an automated RTL-to-bitstream flow, confirming a **3.66× frequency gain** and **15% lower routing congestion** for I/O-intensive workloads over traditional fabrics.',
       tagsList: {
-        title: 'Keywords',
-        tags: [verilog(), openfpga(), vtr(), python()],
+        tags: [],
       },
       links: [pdf({ url: 'https://doi.org/10.1145/3779449' })],
     },
