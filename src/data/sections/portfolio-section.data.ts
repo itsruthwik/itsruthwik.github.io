@@ -18,8 +18,8 @@ const portfolioSectionData = {
       name: 'ATLAS: Automated HLS for DL-Optimized FPGAs',
       dates: [null, null],
       details: [
-        { label: 'Venue', value: 'Preprint / arXiv' },
-        { label: 'Type', value: 'Preprint' },
+        { label: 'Venue', value: 'FPT, 2026' },
+        { label: 'Type', value: 'Poster' },
         {
           label: 'Authors',
           value: '**Ruthwik Reddy Sunketa** and Aman Arora',
