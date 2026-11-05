@@ -24,7 +24,7 @@ const mainSectionData = {
     { label: 'Email', value: 'rsunketa@asu.edu' },
     { label: 'LinkedIn', value: '/in/rsunketa', url: 'https://linkedin.com/in/rsunketa' },
     { label: 'GitHub', value: '/itsruthwik', url: 'https://github.com/itsruthwik' },
-    { label: 'Website', value: 'itsruthwik.com', url: '/', fullRow: true },
+    { label: 'Website', value: 'itsruthwik.github.io', url: 'https://itsruthwik.github.io', fullRow: true },
   ],
   description:
     'Computer Engineering PhD student specializing in **FPGA architecture**, design, and **automated EDA flows**. Current research focuses on next-generation FPGA architectures for **AI/ML workload acceleration** and **hardware-software co-design**. Experience in digital design, verification, physical design, and EDA flow development.',
