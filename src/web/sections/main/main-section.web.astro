@@ -10,10 +10,6 @@ import Typography from '@/web/components/typography.astro';
 export interface Props extends MainSection {}
 
 const { action, config, description, details, fullName, image, links, role, roleLink, tags } = Astro.props;
-
-// LinkedIn is shown as a wide button before Resume; the other links are icon buttons after it.
-const wideLinks = links.filter((link) => link.name === 'LinkedIn');
-const iconLinks = links.filter((link) => link.name !== 'LinkedIn');
 ---
 
 <SectionCard {...config} hideTitle>
@@ -48,8 +44,8 @@ const iconLinks = links.filter((link) => link.name !== 'LinkedIn');
         {
           links.length > 0 && (
             <div class="flex flex-wrap gap-3 sm:flex-nowrap">
-              {wideLinks.map((link) => (
-                <LinkButton {...link} showName />
+              {links.map((link) => (
+                <LinkButton {...link} />
               ))}
               <a
                 href={action.url}
@@ -60,9 +56,6 @@ const iconLinks = links.filter((link) => link.name !== 'LinkedIn');
               >
                 Resume
               </a>
-              {iconLinks.map((link) => (
-                <LinkButton {...link} />
-              ))}
             </div>
           )
         }
