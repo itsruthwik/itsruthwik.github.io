@@ -149,7 +149,7 @@ export const website = createLinkFactory({
 });
 
 export const pdf = createLinkFactory({
-  name: 'PDF',
+  name: 'Paper',
   icon: 'fa6-solid:file-pdf',
 });
 
