@@ -23,7 +23,7 @@ const mainSectionData = {
   pdfDetails: [
     { label: 'Email', value: 'rsunketa@asu.edu' },
     { label: 'LinkedIn', value: '/in/rsunketa', url: 'https://linkedin.com/in/rsunketa' },
-    { label: 'GitHub', value: '/rsunketa', url: 'https://github.com/rsunketa' },
+    { label: 'GitHub', value: '/itsruthwik', url: 'https://github.com/itsruthwik' },
     { label: 'Website', value: 'itsruthwik.com', url: '/', fullRow: true },
   ],
   description:
