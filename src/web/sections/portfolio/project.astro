@@ -14,7 +14,8 @@ export interface Props extends Project {
   screenshotsConfig?: PortfolioSection['config']['screenshots'];
 }
 
-const { dates, description, details, image, links, name, tagsList, screenshots, screenshotsConfig } = Astro.props;
+const { dates, description, details, image, links, name, pageUrl, tagsList, screenshots, screenshotsConfig } =
+  Astro.props;
 
 const alt = `${name} project thumbnail`;
 
@@ -32,10 +33,19 @@ const screenshotsTooltip = screenshotsConfig?.title || 'Screenshots';
           <Thumbnail src={image} alt={alt} size="small" />
           <div class="flex w-full justify-between">
             <div>
-              <Typography variant="item-title">{name}</Typography>
+              {
+                pageUrl ? (
+                  <a href={pageUrl} class="hover:text-primary-600 hover:underline dark:hover:text-primary-400">
+                    <Typography variant="item-title">{name}</Typography>
+                  </a>
+                ) : (
+                  <Typography variant="item-title">{name}</Typography>
+                )
+              }
               {dates[0] && <Timestamp dates={dates} />}
             </div>
             <div class="flex gap-2">
+              {pageUrl && <LinkButton name="Project page" icon="fa6-solid:globe" url={pageUrl} newTab={false} />}
               {links.map((link) => <LinkButton {...link} />)}
               {
                 hasScreenshots && (

@@ -1,0 +1,207 @@
+---
+import Fonts from '@/components/fonts.astro';
+import cv from '@/data';
+import papers from '@/data/papers';
+import type { Paper } from '@/types/paper.types';
+import Favicons from '@/web/head/favicons.generated.astro';
+import InitialTheme from '@/web/head/initial-theme.astro';
+import Meta from '@/web/head/meta.astro';
+import Icon from '@/web/components/icon.astro';
+import ThemeToggle from '@/web/components/theme-toggle.astro';
+
+export function getStaticPaths() {
+  return papers.map((paper) => ({ params: { slug: paper.slug }, props: { paper } }));
+}
+
+interface Props {
+  paper: Paper;
+}
+
+const { paper } = Astro.props;
+const { config } = cv();
+const ownerName = 'Ruthwik Reddy Sunketa';
+
+const meta = {
+  ...config.meta,
+  title: `${paper.title} | ${ownerName}`,
+  description: paper.tldr,
+  ogTitle: paper.title,
+  ogImage: paper.ogImage ? new URL(paper.ogImage, Astro.site).href : config.meta.ogImage,
+};
+
+const abstractParagraphs = paper.abstract.split(/\n\s*\n/);
+const teaser = paper.teaser;
+const otherFigures = paper.figures ?? [];
+
+const card = 'rounded-2xl bg-white p-6 shadow-md dark:bg-gray-800 sm:p-8';
+const heading = 'text-2xl font-extrabold text-gray-900 dark:text-gray-100';
+const paragraph = 'text-base leading-relaxed text-gray-600 dark:text-gray-300';
+---
+
+<!DOCTYPE html>
+<html lang={config.i18n.locale.code} class="scroll-smooth">
+  <head>
+    <Meta meta={meta} />
+    <Favicons />
+    <InitialTheme />
+    <Fonts />
+  </head>
+  <body class="flex justify-center overflow-x-hidden bg-gray-50 dark:bg-gray-900">
+    <ThemeToggle />
+    <main class="w-full max-w-4xl space-y-6 px-4 py-6 sm:px-8 sm:py-12 lg:py-16">
+      <a
+        href="/#publications"
+        class="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
+      >
+        <Icon name="fa6-solid:arrow-left" size={14} />
+        {ownerName}
+      </a>
+
+      <header class:list={[card, 'flex flex-col items-center gap-5 text-center']}>
+        <span
+          class="rounded-full bg-primary-50 px-3 py-1 text-sm font-semibold text-primary-700 dark:bg-primary-900/40 dark:text-primary-300"
+        >
+          {paper.venue} · {paper.type}
+        </span>
+        <h1 class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+          {paper.title}
+        </h1>
+        <p class="flex flex-wrap justify-center gap-x-4 gap-y-1 text-base sm:text-lg">
+          {
+            paper.authors.map((author) => {
+              const classes = author.isMe
+                ? 'font-semibold text-gray-900 dark:text-gray-100'
+                : 'text-gray-700 dark:text-gray-200';
+              return author.url ? (
+                <a href={author.url} class:list={[classes, 'underline decoration-gray-300 underline-offset-2']}>
+                  {author.name}
+                </a>
+              ) : (
+                <span class={classes}>{author.name}</span>
+              );
+            })
+          }
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 sm:text-base">{paper.affiliations.join(' · ')}</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          {
+            paper.links.map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex h-10 items-center gap-2 rounded-full bg-gray-900 px-5 text-sm font-medium text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-gray-600 dark:hover:bg-primary-600"
+              >
+                <Icon name={link.icon} size={16} />
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+        <p class="max-w-2xl text-base text-gray-600 dark:text-gray-300 sm:text-lg">{paper.tldr}</p>
+      </header>
+
+      {
+        teaser && (
+          <figure class:list={[card, 'flex flex-col gap-4']}>
+            <a href={teaser.src} target="_blank" title="Open full size">
+              <img
+                src={teaser.src}
+                alt={teaser.alt}
+                width={teaser.width}
+                height={teaser.height}
+                class="mx-auto h-auto w-full max-w-3xl rounded-lg bg-white p-2"
+              />
+            </a>
+            <figcaption class="text-sm leading-relaxed text-gray-500 dark:text-gray-400">{teaser.caption}</figcaption>
+          </figure>
+        )
+      }
+
+      <section class:list={[card, 'flex flex-col gap-4']}>
+        <h2 class={heading}>Abstract</h2>
+        {abstractParagraphs.map((text) => <p class={paragraph}>{text}</p>)}
+      </section>
+
+      {
+        paper.highlights && paper.highlights.length > 0 && (
+          <section class:list={[card, 'flex flex-col gap-6']}>
+            <h2 class={heading}>Key results</h2>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {paper.highlights.map((highlight) => (
+                <div class="flex flex-col gap-1 rounded-xl bg-gray-50 p-5 dark:bg-gray-700/50">
+                  <span class="text-3xl font-extrabold text-primary-600 dark:text-primary-400">{highlight.value}</span>
+                  <span class="text-sm text-gray-600 dark:text-gray-300">{highlight.label}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {
+        otherFigures.length > 0 && (
+          <section class:list={[card, 'flex flex-col gap-8']}>
+            <h2 class={heading}>Method and results</h2>
+            {otherFigures.map((figure) => (
+              <figure class="flex flex-col gap-3">
+                <a href={figure.src} target="_blank" title="Open full size">
+                  <img
+                    src={figure.src}
+                    alt={figure.alt}
+                    width={figure.width}
+                    height={figure.height}
+                    loading="lazy"
+                    class="mx-auto h-auto w-full max-w-2xl rounded-lg bg-white p-2"
+                  />
+                </a>
+                <figcaption class="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                  {figure.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </section>
+        )
+      }
+
+      <section class:list={[card, 'flex flex-col gap-4']}>
+        <div class="flex items-center justify-between gap-4">
+          <h2 class={heading}>BibTeX</h2>
+          <button
+            id="copy-bibtex"
+            type="button"
+            class="inline-flex h-8 items-center gap-2 rounded-lg bg-gray-100 px-3 text-sm font-medium text-gray-600 hover:bg-primary-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-600 dark:text-gray-200"
+          >
+            <Icon name="fa6-solid:copy" size={14} />
+            <span>Copy</span>
+          </button>
+        </div>
+        <pre
+          id="bibtex"
+          class="overflow-x-auto rounded-lg bg-gray-50 p-4 text-xs leading-relaxed text-gray-800 dark:bg-gray-900 dark:text-gray-200 sm:text-sm"><code>{paper.bibtex}</code></pre>
+      </section>
+
+      <footer class="pb-8 text-center text-sm text-gray-500 dark:text-gray-400">
+        <a href="/" class="underline underline-offset-2 hover:text-primary-600">Back to {ownerName}</a>
+      </footer>
+    </main>
+
+    <script>
+      const button = document.getElementById('copy-bibtex');
+      const label = button?.querySelector('span');
+      const bibtex = document.getElementById('bibtex')?.textContent ?? '';
+
+      button?.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(bibtex);
+          if (label) label.textContent = 'Copied';
+        } catch {
+          if (label) label.textContent = 'Copy failed';
+        }
+        setTimeout(() => {
+          if (label) label.textContent = 'Copy';
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

@@ -5,9 +5,11 @@ import Icon from './icon.astro';
 export interface Props extends Omit<LinkButton, 'url'>, Omit<astroHTML.JSX.HTMLAttributes, 'slot'> {
   url?: LinkButton['url'];
   as?: 'a' | 'button';
+  /** Opens the link in a new tab (default). Set to false for links within this site. */
+  newTab?: boolean;
 }
 
-const { name, icon, url, as, ...props } = Astro.props;
+const { name, icon, url, as, newTab = true, ...props } = Astro.props;
 
 const classes = /* tw */ {
   main: 'flex items-center justify-center w-7 h-7 rounded text-gray-400 bg-gray-100 dark:bg-gray-600 dark:text-gray-200',
@@ -21,7 +23,7 @@ const Element = as || 'a';
 <Element
   aria-label={name}
   href={url}
-  target="_blank"
+  target={newTab ? '_blank' : undefined}
   data-tooltip={name}
   class:list={[classes.main, classes.active, classes.focus]}
   {...props}

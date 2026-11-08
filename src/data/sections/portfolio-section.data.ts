@@ -1,6 +1,7 @@
 import type { PortfolioSection } from '@/types/sections/portfolio-section.types';
 import type { ReadonlyDeep } from 'type-fest';
 import { pdf } from '../helpers/links';
+import { paperUrl } from '../papers';
 
 const portfolioSectionData = {
   config: {
@@ -70,6 +71,7 @@ const portfolioSectionData = {
         tags: [],
       },
       links: [pdf({ url: 'https://arxiv.org/abs/2606.08380' })],
+      pageUrl: paperUrl('rtl-blackbox-hls'),
     },
     {
       name: 'Azure-Lily: An FPGA Architecture with Analog IMC Engines for Efficient AI',

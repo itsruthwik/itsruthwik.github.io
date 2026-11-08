@@ -15,6 +15,7 @@ const config = {
     description:
       'Computer Engineering PhD student at Arizona State University specializing in FPGA architecture, design, and automated EDA flows. Research focuses on next-generation FPGA architectures for AI/ML workload acceleration and hardware-software co-design.',
     faviconPath: '/src/assets/ruthwik-s.jpg',
+    ogImage: 'https://itsruthwik.github.io/og-image.jpg',
   },
 } as const satisfies ReadonlyDeep<Config>;
 
