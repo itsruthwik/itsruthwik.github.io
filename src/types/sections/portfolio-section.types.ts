@@ -66,6 +66,11 @@ export interface Project {
    * [WEB] Links related to your project (e.g. GitHub repository, live demo, mockups).
    */
   links: LinkButton[];
+
+  /**
+   * Path to the paper's own page on this site, e.g. `/papers/my-paper/`.
+   */
+  pageUrl?: string;
 }
 
 export interface PortfolioSection extends Section {
